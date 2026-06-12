@@ -343,23 +343,262 @@ body {
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 15px 10px 10px;">
     @endauth
 
+
+        <!-- KATA PENGANTAR -->
         <a href="#" class="menu-chapter active">Kata Pengantar</a>
         <a href="#" class="menu-sub">Sasaran Pembaca</a>
         <a href="#" class="menu-sub">Tentang Penulis</a>
         <a href="#" class="menu-sub">Ucapan Terima Kasih</a>
         <a href="#" class="menu-sub">Umpan Balik &amp; Saran</a>
 
-        <a href="#" class="menu-chapter"><span class="num">1</span> Pengenalan R &amp; Rstudio</a>
-        <a href="#" class="menu-sub-num"><span class="num">1.1</span> Sejarah Singkat R</a>
-        <a href="#" class="menu-sub-num"><span class="num">1.2</span> Tentang Rstudio</a>
-        <a href="#" class="menu-sub-num"><span class="num">1.3</span> Instalasi R dan RStudio</a>
-        <a href="#" class="menu-sub-sub"><span class="num">1.3.1</span> Instalasi R</a>
-        <a href="#" class="menu-sub-sub"><span class="num">1.3.2</span> Instalasi RStudio</a>
+        <!-- BAB 1 -->
+        <a href="#" class="menu-chapter">
+            <span class="num">1</span> Pengenalan R &amp; Rstudio
+        </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">1.1</span> Sejarah Singkat R
+        </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">1.2</span> Tentang Rstudio
+        </a>
 
-        <a href="#" class="menu-chapter"><span class="num">2</span> Landasan Teori Fungsi Turunan</a>
-        <a href="#" class="menu-sub-num"><span class="num">2.1</span> Definisi dan Aspek</a>
-        <a href="#" class="menu-sub-sub"><span class="num">2.1.1</span> Definisi dan Notasi Turunan</a>
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">1.3</span> Instalasi R dan RStudio
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.3.1</span> Instalasi R
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.3.2</span> Instalasi RStudio
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.3.3</span> Konfigurasi Awal
+            </a>
+
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">1.4</span> Video Instalasi R &amp; RStudio
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.4.1</span> Persiapan Instalasi
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.4.2</span> Proses Instalasi
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.4.3</span> Syarat Titik Stasioner (Maksimum/Minimum)
+            </a>
+
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">1.5</span> Proses Penyelesaian Matematis
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.5.1</span> Menentukan Turunan Pertama Fungsi T(x)
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.5.2</span> Menerapkan Syarat Nilai Minimum
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.5.3</span>Perhitungan Nilai x Nyata
+            </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">1.6</span> Analisis Hasil dan Kesimpulan Studi Kasus
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.6.1</span> Menghitung Waktu Respon Minimum
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.6.2</span> Interpretasi Grafik Fungsi Keseluruhan
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">1.6.3</span> Rekomendasi Batas Optimal Kapasitas Server
+            </a>
+
+             <a href="#" class="menu-sub-sub">
+                <span class="num">1.6.4</span> Kesimpulan Akhir Bab 1
+            </a>
+
+
+
+        <!-- BAB 2 -->
+        <a href="#" class="menu-chapter">
+            <span class="num">2</span> Landasan Teori Fungsi Turunan
+        </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">2.1</span> Definisi dan Aspek
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.1.1</span> Definisi dan Notasi Turunan
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.1.2</span> Definisi Formal Turunan
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.2.2</span> Notasi Aksendan Leibniz
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.1.2</span> Definisi Formal Turunan
+            </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">2.2</span> Aturan Dasar Turunan Fungsi Aljabar
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.2.1</span> Aturan Konstanta
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.2.2</span> Aturan Fungsi Identitas
+            </a>
+             <a href="#" class="menu-sub-sub">
+                <span class="num">2.2.3</span> Data Kualitatif
+            </a>
+
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">2.3</span> Populasi dan Sampel
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.3.1</span> Definisi Populasi
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.3.2</span> Teknik Sampling
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.3.3</span> Teknik Sampling
+            </a>
+
+
+            
+        <a href="#" class="menu-sub-num">
+            <span class="num">2.4</span> Populasi dan Sampel
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">2.4.1</span> Definisi Populasi
+            </a>
+            
+
+        <!-- BAB 3 -->
+        <a href="#" class="menu-chapter">
+            <span class="num">3</span> Statistik Deskriptif
+        </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">3.1</span> Ukuran Pemusatan
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">3.1.1</span> Mean
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">3.1.2</span> Median
+            </a>
+            
+
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">3.2</span> Ukuran Penyebaran
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">3.2.1</span> Varians
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">3.2.2</span> Standar Deviasi
+            </a>
+           
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">3.3</span> Visualisasi Data
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">3.3.1</span> Histogram
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">3.3.2</span> Boxplot
+            </a>
+        
+              <a href="#" class="menu-sub-num">
+            <span class="num">3.4</span> Visualisasi Data
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">3.4.1</span> Histogram
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">3.4.2</span> Boxplot
+            </a>
+             <a href="#" class="menu-sub-sub">
+                <span class="num">3.4.3</span> Boxplot
+            </a>
+           
+        <!-- BAB 4 -->
+        <a href="#" class="menu-chapter">
+            <span class="num">4</span> Distribusi Probabilitas
+        </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">4.1</span> Konsep Probabilitas
+        </a>
+          
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">4.2</span> Konsep Probabilitas
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">4.2.1</span> Histogram
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">4.2.2</span> Boxplot
+            </a>
+             <a href="#" class="menu-sub-sub">
+                <span class="num">4.2.3</span> Boxplot
+            </a>
+
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">4.3</span> Distribusi Lainnya
+        </a>
+         
+
+
+        <!-- BAB 5 -->
+        <a href="#" class="menu-chapter">
+            <span class="num">5</span> Uji Hipotesis
+        </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">5.1</span> Konsep Uji Hipotesis
+        </a>
+        
+
+
+        <a href="#" class="menu-sub-num">
+            <span class="num">5.2</span> Uji Satu Sampel
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">5.2.1</span> Uji t Satu Sampel
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">5.2.2</span> Interpretasi Hasil
+            </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">5.3</span> Uji Dua Sampel
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">5.3.1</span> Uji t Independen
+            </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">5.3.2</span> Uji t Berpasangan
+            </a>
+
+            <a href="#" class="menu-sub-sub">
+                <span class="num">5.3.3</span> Uji t Berpasangan
+            </a>
+        <a href="#" class="menu-sub-num">
+            <span class="num">5.4</span> ANOVA
+        </a>
+            <a href="#" class="menu-sub-sub">
+                <span class="num">5.4.1</span> One-Way ANOVA
+            </a>
+         
+
     </div>
+
 </aside>
 
 <div class="main">
