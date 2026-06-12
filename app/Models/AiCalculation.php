@@ -14,12 +14,13 @@ class AiCalculation extends Model
     protected $table = 'ai_calculations';
 
    
-    protected $fillable = [
-        'user_id',
-        'input_data',
-        'ai_prompt',
-        'ai_response',
-    ];
+   protected $fillable = [
+    'user_id',
+    'chat_session_id',
+    'input_data',
+    'ai_prompt',
+    'ai_response',
+];
 
    
     public function user(): BelongsTo
