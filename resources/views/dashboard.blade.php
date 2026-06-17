@@ -54,4 +54,53 @@
 
         </div>
     </div>
+
+    <script>
+function sendQuestion() {
+    const inputField = document.getElementById('user-query');
+    const chatBox = document.getElementById('chat-box');
+    const sendBtn = document.getElementById('send-btn');
+    const query = inputField.value.trim();
+
+    if (!query) return;
+
+    // Tampilkan pesan user
+    chatBox.classList.remove('hidden');
+    chatBox.innerHTML += `<div class="text-right mb-2"><span class="bg-indigo-100 text-indigo-900 rounded-lg px-3 py-2 text-sm">${query}</span></div>`;
+    
+    // Tampilkan indikator "berpikir"
+    const loadingId = 'loading-' + Date.now();
+    chatBox.innerHTML += `<div class="text-left mb-2" id="${loadingId}"><span class="bg-gray-100 text-gray-500 rounded-lg px-3 py-2 text-sm italic">AI lagi mikir...</span></div>`;
+    
+    inputField.value = '';
+    chatBox.scrollTop = chatBox.scrollHeight;
+    sendBtn.disabled = true;
+
+    // Kirim ke backend
+    fetch("{{ route('ai.chat') }}", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+        },
+        body: JSON.stringify({
+            question: query,
+            chapter_title: "{{ $currentChapter->title ?? 'Umum' }}"
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById(loadingId).remove();
+        chatBox.innerHTML += `<div class="text-left mb-2"><div class="bg-gray-100 text-gray-800 rounded-lg px-3 py-2 text-sm">${data.answer}</div></div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+        sendBtn.disabled = false;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById(loadingId).remove();
+        alert('Gagal nyambung ke AI, cek koneksi atau API Key!');
+        sendBtn.disabled = false;
+    });
+}
+</script>
 </x-app-layout>

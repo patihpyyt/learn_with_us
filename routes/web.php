@@ -14,8 +14,8 @@ Route::get('/', function () {
 });
 
 // 2. Route untuk AI (Public)
-Route::get('/ai', [AiChatController::class, 'index'])->name('ai');
-Route::post('/ai/chat', [AiChatController::class, 'ask'])->name('ai.chat');
+Route::get('/ai', [App\Http\Controllers\AiChatController::class, 'index'])->name('ai');
+Route::post('/ai-chat', [AiChatController::class, 'chat'])->name('ai.chat');
 
 Route::get('/dashboard', [LearningController::class, 'index'])->name('dashboard');
 Route::get('/dashboard/belajar/{slug}', [LearningController::class, 'show'])->name('chapter.show');

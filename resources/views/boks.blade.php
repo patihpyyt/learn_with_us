@@ -51,6 +51,31 @@ body {
     object-fit: cover;
 }
 
+.authors-list {
+    text-align: center;
+    padding: 0 16px 20px;
+}
+
+.authors-list .author-item {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #e8edf2;
+    margin-bottom: 8px;
+}
+
+.authors-list .author-item .author-name {
+    font-weight: 600;
+    color: #ffffff;
+    display: block;
+}
+
+.authors-list .author-item .author-nim {
+    font-weight: 400;
+    font-size: 11.5px;
+    color: #b9c7d4;
+    display: block;
+}
+
 .menu {
     padding: 0 0 24px;
 }
@@ -93,7 +118,7 @@ body {
 .menu-sub-num {
     font-weight: 600;
     font-size: 14px;
-    padding: 11px 24px;
+    padding: 11px 24px 11px 40px;
     color: #ffffff;
 }
 
@@ -111,7 +136,7 @@ body {
 .menu-sub-sub {
     font-weight: 400;
     font-size: 13.5px;
-    padding: 10px 24px 10px 52px;
+    padding: 10px 24px 10px 60px;
     color: #d7dee5;
 }
 
@@ -348,6 +373,25 @@ body {
 <aside class="sidebar">
     <div class="logo">
         <img src="https://placehold.co/140x140" alt="logo">
+    </div>
+
+    <div class="authors-list">
+        <div class="author-item">
+            <span class="author-name">Abimanya</span>
+            <span class="author-nim">10625</span>
+        </div>
+        <div class="author-item">
+            <span class="author-name">Baharu M.</span>
+            <span class="author-nim">10625</span>
+        </div>
+        <div class="author-item">
+            <span class="author-name">Risky Alfarezy</span>
+            <span class="author-nim">10625</span>
+        </div>
+        <div class="author-item">
+            <span class="author-name">M. Iqbal Putih</span>
+            <span class="author-nim">10625</span>
+        </div>
     </div>
 
     <div class="menu">
