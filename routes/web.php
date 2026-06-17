@@ -5,7 +5,6 @@ use App\Http\Controllers\LearningController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-<<<<<<< HEAD
 // 1. Halaman Utama (Public)
 Route::get('/', function () {
     return view('boks', [
@@ -17,7 +16,7 @@ Route::get('/', function () {
 // 2. Route untuk AI (Public)
 Route::get('/ai', [App\Http\Controllers\AiChatController::class, 'index'])->name('ai');
 Route::post('/ai-chat', [AiChatController::class, 'chat'])->name('ai.chat');
-=======
+
 
 Route::get('/', function () {
     $riwayat = auth()->check() 
@@ -44,7 +43,7 @@ Route::get('/ai/chat/{id}', function ($id) {
 })->middleware('auth'); 
 
 
->>>>>>> upstream/main
+
 
 Route::get('/dashboard', [LearningController::class, 'index'])->name('dashboard');
 Route::get('/dashboard/belajar/{slug}', [LearningController::class, 'show'])->name('chapter.show');
@@ -55,14 +54,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-<<<<<<< HEAD
-    // Dashboard sudah dipindah ke atas, jadi tidak perlu lagi di sini
-=======
+
     
   
     Route::get('/dashboard', [LearningController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/belajar/{slug}', [LearningController::class, 'show'])->name('chapter.show');
->>>>>>> upstream/main
+
 });
 
 require __DIR__.'/auth.php';
