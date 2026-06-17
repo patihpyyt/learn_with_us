@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ $title }}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<<<<<<< HEAD
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+=======
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&family=Playfair+Display:wght=600;700&family=Source+Serif+4:ital,opsz,wght=0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+>>>>>>> upstream/main
 
 <style>
 * {
@@ -19,18 +23,28 @@ body {
     height: 100vh;
     overflow: hidden;
     font-family: 'Inter', Arial, sans-serif;
+<<<<<<< HEAD
     background: #ffffff;
+=======
+    background: #f5f2ed;
+>>>>>>> upstream/main
 }
 
 /* ─── SIDEBAR ─── */
 .sidebar {
+<<<<<<< HEAD
     width: 300px;
     background: #2c4a6e;
+=======
+    width: 320px;
+    background: #0f1923;
+>>>>>>> upstream/main
     color: white;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     height: 100vh;
+<<<<<<< HEAD
     flex-shrink: 0;
 }
 
@@ -78,24 +92,64 @@ body {
 
 .menu {
     padding: 0 0 24px;
+=======
+    border-right: 1px solid #1e3040;
+}
+
+.sidebar::-webkit-scrollbar { width: 3px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+.logo {
+    text-align: center;
+    padding: 28px 24px 22px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background: #0a1520;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    background: white;
+    border: 2px solid rgba(74,158,218,0.4);
+}
+
+.menu {
+    padding: 10px 10px 24px;
+>>>>>>> upstream/main
 }
 
 .menu a {
     display: block;
+<<<<<<< HEAD
     color: #e8edf2;
     text-decoration: none;
     font-family: 'Inter', Arial, sans-serif;
     line-height: 1.4;
+=======
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.4;
+    border-radius: 8px;
+>>>>>>> upstream/main
     transition: background .15s, color .15s;
 }
 
 .menu a:hover {
+<<<<<<< HEAD
     background: rgba(255,255,255,0.08);
     color: #ffffff;
+=======
+    background: rgba(74,158,218,0.08);
+    color: #a8d4f0;
+>>>>>>> upstream/main
 }
 
 .menu-chapter {
     font-weight: 700;
+<<<<<<< HEAD
     font-size: 15px;
     padding: 11px 24px;
     color: #ffffff;
@@ -106,10 +160,41 @@ body {
 
 .menu-chapter .num {
     font-weight: 700;
+=======
+    font-size: 12px;
+    padding: 12px 14px 8px;
+    margin: 14px 0 2px 0;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #4a9eda;
+    border-radius: 0 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-chapter:first-child {
+    margin-top: 6px;
+}
+
+.menu-chapter .num {
+    background: rgba(74,158,218,0.2);
+    color: #7fc4f5;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+>>>>>>> upstream/main
 }
 
 .menu-sub {
     font-weight: 400;
+<<<<<<< HEAD
     font-size: 14px;
     padding: 11px 24px 11px 40px;
     color: #e8edf2;
@@ -131,10 +216,44 @@ body {
     background: #6b7f93;
     color: #ffffff;
     font-weight: 600;
+=======
+    font-size: 12.5px;
+    padding: 7px 14px 7px 28px;
+    margin: 1px 0;
+    color: #8aaec8;
+}
+
+.menu-sub-num {
+    font-weight: 400;
+    font-size: 12.5px;
+    padding: 7px 14px 7px 14px;
+    margin: 1px 0;
+    color: #8aaec8;
+}
+
+.menu-sub-num .num,
+.menu-chapter .num {
+    font-weight: 700;
+}
+
+.menu-sub-num .num {
+    font-size: 11px;
+    color: #4a8aaa;
+    margin-right: 4px;
+    font-weight: 600;
+}
+
+.menu a.active {
+    background: rgba(74,158,218,0.15);
+    border-left: 2px solid #4a9eda;
+    border-radius: 0 8px 8px 0;
+    color: #7fc4f5;
+>>>>>>> upstream/main
 }
 
 .menu-sub-sub {
     font-weight: 400;
+<<<<<<< HEAD
     font-size: 13.5px;
     padding: 10px 24px 10px 60px;
     color: #d7dee5;
@@ -142,10 +261,24 @@ body {
 
 .menu-sub-sub .num {
     font-weight: 500;
+=======
+    font-size: 11.5px;
+    padding: 6px 14px 6px 38px;
+    margin: 0;
+    border-radius: 6px;
+    color: #5a7e98;
+}
+
+.menu-sub-sub .num {
+    font-weight: 600;
+    font-size: 10.5px;
+    color: #3a6880;
+>>>>>>> upstream/main
     margin-right: 4px;
 }
 
 .menu-sub-sub:hover {
+<<<<<<< HEAD
     background: rgba(255,255,255,0.08) !important;
     color: #ffffff !important;
 }
@@ -172,6 +305,19 @@ body {
     align-items: center;
     gap: 8px;
     text-decoration: none;
+=======
+    background: rgba(74,158,218,0.06) !important;
+    color: #8aaec8 !important;
+}
+
+.menu-chapter + .menu-chapter,
+.menu-sub-sub + .menu-chapter,
+.menu-sub-num + .menu-chapter,
+.menu-sub + .menu-chapter {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 16px;
+    padding-top: 14px;
+>>>>>>> upstream/main
 }
 
 /* ─── MAIN CONTENT ─── */
@@ -183,6 +329,7 @@ body {
 }
 
 .toolbar {
+<<<<<<< HEAD
     height: 52px;
     background: #fff;
     border-bottom: 1px solid #ebebeb;
@@ -227,10 +374,39 @@ body {
     font-size: 13px;
     padding: 5px 12px;
     background: rgba(44,123,214,0.08);
+=======
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px solid #e8e0d0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.toolbar-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #7a6e5e;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.toolbar-title a {
+    color: #4a9eda;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 4px 10px;
+    background: rgba(74, 158, 218, 0.1);
+>>>>>>> upstream/main
     border-radius: 6px;
     transition: all 0.2s;
 }
 
+<<<<<<< HEAD
 .toolbar-title a.ask-ai:hover {
     background: #2c7bd6;
     color: #fff;
@@ -258,6 +434,17 @@ body {
     gap: 10px;
     align-items: center;
     margin-left: 10px;
+=======
+.toolbar-title a:hover {
+    background: #4a9eda;
+    color: #fff;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+>>>>>>> upstream/main
 }
 
 .btn-auth {
@@ -265,12 +452,17 @@ body {
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
+<<<<<<< HEAD
     padding: 7px 16px;
+=======
+    padding: 8px 18px;
+>>>>>>> upstream/main
     border-radius: 6px;
     transition: all 0.2s ease;
 }
 
 .btn-login {
+<<<<<<< HEAD
     color: #2c4a6e;
     border: 1px solid #d0d5dd;
 }
@@ -289,11 +481,33 @@ body {
 .btn-register:hover {
     background: #1e3550;
     border-color: #1e3550;
+=======
+    color: #1a1208;
+    border: 1px solid #c8bfaa;
+}
+
+.btn-login:hover {
+    background: #f5f2ed;
+    border-color: #1a1208;
+}
+
+.btn-register {
+    background: #4a9eda;
+    color: white;
+    border: 1px solid #4a9eda;
+}
+
+.btn-register:hover {
+    background: #3586c2;
+    border-color: #3586c2;
+    box-shadow: 0 2px 4px rgba(74, 158, 218, 0.2);
+>>>>>>> upstream/main
 }
 
 .reader {
     flex: 1;
     overflow-y: auto;
+<<<<<<< HEAD
     background: #ffffff;
 }
 
@@ -366,6 +580,71 @@ body {
     border-radius: 6px;
     margin-top: 24px;
 }
+=======
+    background: #faf8f4;
+}
+
+.reader::-webkit-scrollbar { width: 5px; }
+.reader::-webkit-scrollbar-track { background: #f0ece4; }
+.reader::-webkit-scrollbar-thumb { background: #c8bfaa; border-radius: 3px; }
+
+.article {
+    max-width: 860px;
+    margin: auto;
+    padding: 64px 72px 80px;
+}
+
+.article h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1208;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+}
+
+.article h1::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 4px;
+    background: #4a9eda;
+    border-radius: 2px;
+    margin-top: 18px;
+    margin-bottom: 36px;
+}
+
+.article h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a1208;
+    margin: 48px 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e8e0d0;
+    position: relative;
+}
+
+.article h2::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #4a9eda;
+}
+
+.article p {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.95;
+    color: #2d2416;
+    margin-bottom: 18px;
+}
+>>>>>>> upstream/main
 </style>
 </head>
 <body>
@@ -375,6 +654,7 @@ body {
         <img src="https://placehold.co/140x140" alt="logo">
     </div>
 
+<<<<<<< HEAD
     <div class="authors-list">
         <div class="author-item">
             <span class="author-name">Abimanya</span>
@@ -411,6 +691,23 @@ body {
         @endforelse
 
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 24px 6px;">
+=======
+    <div class="menu">
+    @auth
+        <div class="menu-history-title" style="font-weight: 700; font-size: 11px; padding: 12px 14px 4px; margin-top: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b;">
+            💬 Riwayat Chat Kamu
+        </div>
+        
+        @forelse($riwayat as $chat)
+            <a href="{{ url('/ai?chat_id=' . $chat->id) }}" class="menu-history-item" style="font-weight: 400; font-size: 12px; padding: 8px 14px 8px 20px; color: #94a3b8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 8px; text-decoration: none;" title="{{ $chat->input_data }}">
+                <span>⏱️</span> <span>{{ Str::limit($chat->input_data, 22) }}</span>
+            </a>
+        @empty
+            <p style="font-size: 11px; color: #475569; padding: 8px 14px; font-style: italic;">Belum ada obrolan.</p>
+        @endforelse
+        
+        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 15px 10px 10px;">
+>>>>>>> upstream/main
     @endauth
 
 
@@ -673,6 +970,7 @@ body {
 
 <div class="main">
     <header class="toolbar">
+<<<<<<< HEAD
         <div class="toolbar-left">
             <a href="#" class="toolbar-icon" title="Daftar Isi">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -724,6 +1022,24 @@ body {
                     @endauth
                 @endif
             </div>
+=======
+        <div class="toolbar-title">
+            <span>Panduan Studi</span>
+            <a href="{{ url('/ai') }}">🔍 Tanya AI</a> 
+        </div>
+
+        <div class="auth-buttons">
+            @if (Route::has('login'))
+                @auth
+                    <a href="{{ url('/dashboard') }}" class="btn-auth btn-register">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="btn-auth btn-login">Masuk</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="btn-auth btn-register">Daftar</a>
+                    @endif
+                @endauth
+            @endif
+>>>>>>> upstream/main
         </div>
     </header>
 
@@ -732,7 +1048,11 @@ body {
             <h1>Bab 2 Konsep Dasar Statistik</h1>
             <h2>2.1 Definisi dan Aspek</h2>
             <p>Isi materi nanti taruh di sini.</p>
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> upstream/main
             </div>
     </div>
 </div>
