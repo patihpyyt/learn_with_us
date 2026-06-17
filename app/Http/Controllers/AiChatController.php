@@ -53,4 +53,15 @@ class AiChatController extends Controller
 
     }
 
+    public function index()
+{
+    // Mengambil data riwayat jika user login, atau kosongkan jika tidak
+    $riwayat = \App\Models\AiCalculation::where('chat_session_id', session()->getId())->get();
+    
+    return view('ai', [
+        'riwayat' => $riwayat,
+        'chatMasaLalu' => collect()
+    ]);
+}
+
 }

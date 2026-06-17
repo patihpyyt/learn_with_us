@@ -1,42 +1,10 @@
 <?php
 
-namespace App\Services;
+namespace App\Models;
 
-use Illuminate\Support\Facades\Http;
+use Illuminate\Database\Eloquent\Model;
 
-class OpenRouterService
+class AiCalculation extends Model
 {
-    public function chat($question)
-    {
-        $response = Http::timeout(60)
-            ->withHeaders([
-                'Authorization' => 'Bearer ' . env('XAI_API_KEY'),
-                'Content-Type' => 'application/json',
-            ])
-            ->post('https://api.x.ai/v1/chat/completions', [
-
-                'model' => 'grok-3-mini',
-
-                'messages' => [
-                    [
-                        'role' => 'system',
-                        'content' => 'Kamu adalah asisten dosen kalkulus. Jawab cepat, jelas, dan gunakan LaTeX untuk rumus.'
-                    ],
-                    [
-                        'role' => 'user',
-                        'content' => $question
-                    ]
-                ],
-
-                'max_tokens' => 500
-            ]);
-
-
-        if ($response->failed()) {
-            throw new \Exception($response->body());
-        }
-
-
-        return $response->json()['choices'][0]['message']['content'];
-    }
+    protected $fillable = ['user_id', 'chat_session_id', 'input_data', 'ai_prompt', 'ai_response'];
 }
