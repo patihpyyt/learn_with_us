@@ -9,14 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+   public function up()
 {
     Schema::create('ai_calculations', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
-        $table->text('input_data');
-        $table->text('ai_prompt');   
-        $table->text('ai_response'); 
+        $table->string('chat_session_id'); // Kunci agar AI ingat percakapan
+        $table->text('input_data');        // Pertanyaan user
+        $table->text('ai_response');       // Jawaban AI
         $table->timestamps();
     });
 }

@@ -3,30 +3,54 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\GeminiService; 
+use App\Services\OpenRouterService;
+use App\Models\AiCalculation;
 
 class AiChatController extends Controller
 {
-    public function ask(Request $request)
+
+    public function ask(
+        Request $request,
+        OpenRouterService $ai
+    )
     {
+
         $request->validate([
-            'question' => 'required|string',
-            'chapter_title' => 'required|string'
+            'question'=>'required|string'
         ]);
 
-        $gemini = new GeminiService();
 
-        $systemInstruction = "Kamu adalah seorang Asisten Dosen Kalkulus yang ahli, ramah, dan solutif. "
-            . "Tugasmu adalah menjawab pertanyaan mahasiswa seputar topik Turunan dan Integral. "
-            . "Jika menuliskan rumus matematika, WAJIB gunakan format LaTeX dengan pembungkus '$$' untuk baris baru atau '$' untuk inline agar sistem bisa merendernya dengan cantik. "
-            . "Jangan menjawab pertanyaan di luar konteks matematika atau kalkulus.";
+        $answer = $ai->chat(
+            $request->question
+        );
 
-        $prompt = "Saya sedang mempelajari bab: " . $request->chapter_title . ".\nPertanyaan saya: " . $request->question;
 
-        $aiResponse = $gemini->generateResponse($prompt, $systemInstruction);
+        // Kalau login baru simpan
+        if(auth()->check()){
+
+            AiCalculation::create([
+
+                'user_id'=>auth()->id(),
+
+                'chat_session_id'=>session()->getId(),
+
+                'input_data'=>$request->question,
+
+                'ai_prompt'=>$request->question,
+
+                'ai_response'=>$answer
+
+            ]);
+
+        }
+
 
         return response()->json([
-            'answer' => $aiResponse
+
+            'answer'=>$answer
+
         ]);
+
     }
+
 }
