@@ -1,12 +1,12 @@
 <?php
 
-
 use App\Http\Controllers\AiChatController;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContentController; 
 use Illuminate\Support\Facades\Route;
 
-// --- 1. Halaman Utama (Home) ---
+// --- 1. Halaman Utama ---
 Route::get('/', function () {
     $riwayat = auth()->check() 
         ? \App\Models\AiCalculation::where('user_id', auth()->id())->latest()->take(5)->get() 
@@ -18,41 +18,26 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/ai', [AiChatController::class, 'index'])->name('ai');
-// Menggunakan method 'prosesAI' sesuai dengan yang ada di Controller kamu
-Route::post('/ai/chat', [AiChatController::class, 'prosesAI'])->name('ai.chat'); 
+// --- 2. API Content (Hanya satu saja!) ---
+Route::get('/api/content/{slug}', [ContentController::class, 'getContent']);
 
-
-Route::get('/api/content/{slug}', [ContentController::class, 'getApiContent']);
-
+// --- 3. AI Chat Routes ---
+Route::get('/ai', [AiChatController::class, 'index'])->name('ai.index');
+Route::post('/ai/proses', [AiChatController::class, 'prosesAI'])->name('ai.chat');
 Route::get('/ai/chat/{id}', function ($id) {
     $chat = \App\Models\AiCalculation::findOrFail($id);
     return response()->json([
         'question' => $chat->input_data,
         'answer' => $chat->ai_response
     ]);
-})->middleware('auth'); 
+})->middleware('auth');
 
-// routes/web.php
-
-Route::get('/materi/{slug}', function ($slug) {
-    // Ubah slug (misal 'bab1') jadi judul yang bagus (misal 'Bab 1')
-    $title = ucwords(str_replace('-', ' ', $slug)); 
-    
-    if (view()->exists('materi.' . $slug)) {
-        // Kirim $title ke view
-        return view('materi.' . $slug, ['title' => $title]);
-    }
-    abort(404);
-})->name('materi.show');
-
-Route::get('/ai', [AiChatController::class, 'index'])->name('ai.index');
-Route::post('/ai/proses', [AiChatController::class, 'prosesAI'])->name('ai.chat');
-// --- 3. Dashboard Belajar ---
+// --- 4. Dashboard & Materi ---
 Route::get('/dashboard', [LearningController::class, 'index'])->name('dashboard');
-Route::get('/dashboard/belajar/{slug}', [LearningController::class, 'show'])->name('chapter.show');
+// Jika Anda menggunakan AJAX untuk memuat materi di boks.blade, 
+// pastikan JS memanggil /api/content/{slug} seperti di atas.
 
-// --- 4. Route yang WAJIB Login ---
+// --- 5. Auth & Profile ---
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

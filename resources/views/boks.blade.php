@@ -372,6 +372,12 @@ body {
 .page-nav-float-next {
     right: 8px;
 }
+
+.menu a.active {
+    background: #6b7f93 !important; /* Gunakan !important jika warna tidak berubah */
+    color: #ffffff !important;
+    font-weight: 600;
+}
 </style>
 </head>
 <body>
@@ -736,25 +742,28 @@ body {
 
     const links = Array.from(document.querySelectorAll('#sidebar-menu a[data-page]'));
 
+
     function goToPage(slug) {
-        fetch(`/api/content/${slug}`)
-            .then(res => res.json())
-            .then(data => {
+    fetch(`/api/content/${slug}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('article-title').innerText = data.title;
+            document.getElementById('article-content-body').innerHTML = data.body;
 
-                document.getElementById('article-title').innerText = data.title;
-                document.getElementById('article-content-body').innerHTML = data.body;
+            // --- BAGIAN PENTING UNTUK PINDAH WARNA ---
+            // 1. Hapus class 'active' dari SEMUA menu
+            links.forEach(a => a.classList.remove('active'));
 
-                links.forEach(a => {
-                    a.classList.toggle('active', a.dataset.page === slug);
-                });
+            // 2. Tambahkan class 'active' HANYA ke menu yang slug-nya cocok
+            const activeLink = links.find(a => a.dataset.page === slug);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+            // ------------------------------------------
 
-                updateNav(slug);
-            })
-            .catch(() => {
-                document.getElementById('article-title').innerText = "Error";
-                document.getElementById('article-content-body').innerHTML = "Konten tidak ditemukan";
-            });
-    }
+            updateNav(slug);
+        });
+}
 
     function updateNav(slug) {
 
