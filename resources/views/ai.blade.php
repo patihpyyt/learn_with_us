@@ -44,7 +44,7 @@
 
             @guest
                 <p style="font-size: 12px; color: #94a3b8; text-align: center; margin-top: 10px;">
-                    🔒 <a href="{{ route('login') }}" style="color: #4F46E5; font-weight: 600; text-decoration: none;">Login</a> agar riwayat chat kamu tersimpan.
+                  <a href="{{ route('login') }}" style="color: #4F46E5; font-weight: 600; text-decoration: none;">Login</a> agar riwayat chat kamu tersimpan.
                 </p>
             @endguest
         </div>

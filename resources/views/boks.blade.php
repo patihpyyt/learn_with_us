@@ -155,6 +155,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    position: relative;
 }
 
 .toolbar {
@@ -279,7 +280,7 @@ body {
 .article {
     max-width: 880px;
     margin: auto;
-    padding: 56px 64px 96px;
+    padding: 56px 64px 32px;
 }
 
 .article h1 {
@@ -341,6 +342,32 @@ body {
     border-radius: 6px;
     margin-top: 24px;
 }
+
+/* ─── NAVIGASI HALAMAN (PANAH POLOS MENTOK TEPI AREA KONTEN) ─── */
+.page-nav-float {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c4cdd6;
+    text-decoration: none;
+    transition: color .15s;
+    z-index: 10;
+}
+
+.page-nav-float:hover {
+    color: #2c4a6e;
+}
+
+.page-nav-float-prev {
+    left: 8px;
+}
+
+.page-nav-float-next {
+    right: 8px;
+}
 </style>
 </head>
 <body>
@@ -350,7 +377,7 @@ body {
         <img src="https://placehold.co/140x140" alt="logo">
     </div>
 
-    <div class="menu">
+    <div class="menu" id="sidebar-menu">
     @auth
         <div class="menu-history-title">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="vertical-align:-1px; margin-right:5px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
@@ -371,254 +398,254 @@ body {
 
 
         <!-- KATA PENGANTAR -->
-        <a href="#" class="menu-chapter active">Kata Pengantar</a>
-        <a href="#" class="menu-sub">Sasaran Pembaca</a>
-        <a href="#" class="menu-sub">Tentang Penulis</a>
-        <a href="#" class="menu-sub">Ucapan Terima Kasih</a>
-        <a href="#" class="menu-sub">Umpan Balik &amp; Saran</a>
+        <a href="#" data-page="kata-pengantar" class="menu-chapter active">Kata Pengantar</a>
+        <a href="#" data-page="sasaran-pembaca" class="menu-sub">Sasaran Pembaca</a>
+        <a href="#" data-page="tentang-penulis" class="menu-sub">Tentang Penulis</a>
+        <a href="#" data-page="ucapan-terima-kasih" class="menu-sub">Ucapan Terima Kasih</a>
+        <a href="#" data-page="umpan-balik-saran" class="menu-sub">Umpan Balik &amp; Saran</a>
 
         <!-- BAB 1 -->
-        <a href="#" class="menu-chapter">
+        <a href="#" data-page="bab1" class="menu-chapter">
             <span class="num">1</span> Pengenalan R &amp; Rstudio
         </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab1-1" class="menu-sub-num">
             <span class="num">1.1</span> Sejarah Singkat R
         </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab1-2" class="menu-sub-num">
             <span class="num">1.2</span> Tentang Rstudio
         </a>
 
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab1-3" class="menu-sub-num">
             <span class="num">1.3</span> Instalasi R dan RStudio
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-3-1" class="menu-sub-sub">
                 <span class="num">1.3.1</span> Instalasi R
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-3-2" class="menu-sub-sub">
                 <span class="num">1.3.2</span> Instalasi RStudio
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-3-3" class="menu-sub-sub">
                 <span class="num">1.3.3</span> Konfigurasi Awal
             </a>
 
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab1-4" class="menu-sub-num">
             <span class="num">1.4</span> Video Instalasi R &amp; RStudio
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-4-1" class="menu-sub-sub">
                 <span class="num">1.4.1</span> Persiapan Instalasi
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-4-2" class="menu-sub-sub">
                 <span class="num">1.4.2</span> Proses Instalasi
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-4-3" class="menu-sub-sub">
                 <span class="num">1.4.3</span> Syarat Titik Stasioner (Maksimum/Minimum)
             </a>
 
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab1-5" class="menu-sub-num">
             <span class="num">1.5</span> Proses Penyelesaian Matematis
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-5-1" class="menu-sub-sub">
                 <span class="num">1.5.1</span> Menentukan Turunan Pertama Fungsi T(x)
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-5-2" class="menu-sub-sub">
                 <span class="num">1.5.2</span> Menerapkan Syarat Nilai Minimum
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-5-3" class="menu-sub-sub">
                 <span class="num">1.5.3</span>Perhitungan Nilai x Nyata
             </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab1-6" class="menu-sub-num">
             <span class="num">1.6</span> Analisis Hasil dan Kesimpulan Studi Kasus
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-6-1" class="menu-sub-sub">
                 <span class="num">1.6.1</span> Menghitung Waktu Respon Minimum
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-6-2" class="menu-sub-sub">
                 <span class="num">1.6.2</span> Interpretasi Grafik Fungsi Keseluruhan
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab1-6-3" class="menu-sub-sub">
                 <span class="num">1.6.3</span> Rekomendasi Batas Optimal Kapasitas Server
             </a>
 
-             <a href="#" class="menu-sub-sub">
+             <a href="#" data-page="bab1-6-4" class="menu-sub-sub">
                 <span class="num">1.6.4</span> Kesimpulan Akhir Bab 1
             </a>
 
 
 
         <!-- BAB 2 -->
-        <a href="#" class="menu-chapter">
+        <a href="#" data-page="bab2" class="menu-chapter">
             <span class="num">2</span> Landasan Teori Fungsi Turunan
         </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab2-1" class="menu-sub-num">
             <span class="num">2.1</span> Definisi dan Aspek
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-1-1" class="menu-sub-sub">
                 <span class="num">2.1.1</span> Definisi dan Notasi Turunan
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-1-2" class="menu-sub-sub">
                 <span class="num">2.1.2</span> Definisi Formal Turunan
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-2-2" class="menu-sub-sub">
                 <span class="num">2.2.2</span> Notasi Aksendan Leibniz
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-1-2-b" class="menu-sub-sub">
                 <span class="num">2.1.2</span> Definisi Formal Turunan
             </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab2-2" class="menu-sub-num">
             <span class="num">2.2</span> Aturan Dasar Turunan Fungsi Aljabar
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-2-1" class="menu-sub-sub">
                 <span class="num">2.2.1</span> Aturan Konstanta
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-2-2-b" class="menu-sub-sub">
                 <span class="num">2.2.2</span> Aturan Fungsi Identitas
             </a>
-             <a href="#" class="menu-sub-sub">
+             <a href="#" data-page="bab2-2-3" class="menu-sub-sub">
                 <span class="num">2.2.3</span> Data Kualitatif
             </a>
 
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab2-3" class="menu-sub-num">
             <span class="num">2.3</span> Populasi dan Sampel
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-3-1" class="menu-sub-sub">
                 <span class="num">2.3.1</span> Definisi Populasi
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-3-2" class="menu-sub-sub">
                 <span class="num">2.3.2</span> Teknik Sampling
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-3-3" class="menu-sub-sub">
                 <span class="num">2.3.3</span> Teknik Sampling
             </a>
 
 
             
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab2-4" class="menu-sub-num">
             <span class="num">2.4</span> Populasi dan Sampel
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab2-4-1" class="menu-sub-sub">
                 <span class="num">2.4.1</span> Definisi Populasi
             </a>
             
 
         <!-- BAB 3 -->
-        <a href="#" class="menu-chapter">
+        <a href="#" data-page="bab3" class="menu-chapter">
             <span class="num">3</span> Statistik Deskriptif
         </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab3-1" class="menu-sub-num">
             <span class="num">3.1</span> Ukuran Pemusatan
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab3-1-1" class="menu-sub-sub">
                 <span class="num">3.1.1</span> Mean
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab3-1-2" class="menu-sub-sub">
                 <span class="num">3.1.2</span> Median
             </a>
             
 
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab3-2" class="menu-sub-num">
             <span class="num">3.2</span> Ukuran Penyebaran
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab3-2-1" class="menu-sub-sub">
                 <span class="num">3.2.1</span> Varians
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab3-2-2" class="menu-sub-sub">
                 <span class="num">3.2.2</span> Standar Deviasi
             </a>
            
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab3-3" class="menu-sub-num">
             <span class="num">3.3</span> Visualisasi Data
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab3-3-1" class="menu-sub-sub">
                 <span class="num">3.3.1</span> Histogram
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab3-3-2" class="menu-sub-sub">
                 <span class="num">3.3.2</span> Boxplot
             </a>
         
-              <a href="#" class="menu-sub-num">
+              <a href="#" data-page="bab3-4" class="menu-sub-num">
             <span class="num">3.4</span> Visualisasi Data
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab3-4-1" class="menu-sub-sub">
                 <span class="num">3.4.1</span> Histogram
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab3-4-2" class="menu-sub-sub">
                 <span class="num">3.4.2</span> Boxplot
             </a>
-             <a href="#" class="menu-sub-sub">
+             <a href="#" data-page="bab3-4-3" class="menu-sub-sub">
                 <span class="num">3.4.3</span> Boxplot
             </a>
            
         <!-- BAB 4 -->
-        <a href="#" class="menu-chapter">
+        <a href="#" data-page="bab4" class="menu-chapter">
             <span class="num">4</span> Distribusi Probabilitas
         </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab4-1" class="menu-sub-num">
             <span class="num">4.1</span> Konsep Probabilitas
         </a>
           
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab4-2" class="menu-sub-num">
             <span class="num">4.2</span> Konsep Probabilitas
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab4-2-1" class="menu-sub-sub">
                 <span class="num">4.2.1</span> Histogram
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab4-2-2" class="menu-sub-sub">
                 <span class="num">4.2.2</span> Boxplot
             </a>
-             <a href="#" class="menu-sub-sub">
+             <a href="#" data-page="bab4-2-3" class="menu-sub-sub">
                 <span class="num">4.2.3</span> Boxplot
             </a>
 
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab4-3" class="menu-sub-num">
             <span class="num">4.3</span> Distribusi Lainnya
         </a>
          
 
 
         <!-- BAB 5 -->
-        <a href="#" class="menu-chapter">
+        <a href="#" data-page="bab5" class="menu-chapter">
             <span class="num">5</span> Uji Hipotesis
         </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab5-1" class="menu-sub-num">
             <span class="num">5.1</span> Konsep Uji Hipotesis
         </a>
         
 
 
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab5-2" class="menu-sub-num">
             <span class="num">5.2</span> Uji Satu Sampel
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab5-2-1" class="menu-sub-sub">
                 <span class="num">5.2.1</span> Uji t Satu Sampel
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab5-2-2" class="menu-sub-sub">
                 <span class="num">5.2.2</span> Interpretasi Hasil
             </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab5-3" class="menu-sub-num">
             <span class="num">5.3</span> Uji Dua Sampel
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab5-3-1" class="menu-sub-sub">
                 <span class="num">5.3.1</span> Uji t Independen
             </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab5-3-2" class="menu-sub-sub">
                 <span class="num">5.3.2</span> Uji t Berpasangan
             </a>
 
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab5-3-3" class="menu-sub-sub">
                 <span class="num">5.3.3</span> Uji t Berpasangan
             </a>
-        <a href="#" class="menu-sub-num">
+        <a href="#" data-page="bab5-4" class="menu-sub-num">
             <span class="num">5.4</span> ANOVA
         </a>
-            <a href="#" class="menu-sub-sub">
+            <a href="#" data-page="bab5-4-1" class="menu-sub-sub">
                 <span class="num">5.4.1</span> One-Way ANOVA
             </a>
          
@@ -683,15 +710,126 @@ body {
         </div>
     </header>
 
-    <div class="reader">
-        <div class="article">
-            <h1>Bab 2 Konsep Dasar Statistik</h1>
+    <div class="reader" id="reader">
+        <div class="article" id="article-content">
+            <h1>Kata Penghantar</h1>
             <h2>2.1 Definisi dan Aspek</h2>
             <p>Isi materi nanti taruh di sini.</p>
-
-            </div>
+        </div>
     </div>
+
+    <a href="#" class="page-nav-float page-nav-float-prev" id="btn-prev" aria-label="Halaman sebelumnya">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+
+    <a href="#" class="page-nav-float page-nav-float-next" id="btn-next" aria-label="Halaman selanjutnya">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
 </div>
+
+<script>
+(function () {
+    // Ambil semua link sidebar yang punya data-page, urutannya sesuai urutan tampil di sidebar
+    var links = Array.prototype.slice.call(
+        document.querySelectorAll('#sidebar-menu a[data-page]')
+    );
+
+    // Susun array { slug, title } sesuai urutan di sidebar
+    var pages = links.map(function (a) {
+        // Ambil teks judul, buang nomor seperti "1.1" jika ada di dalam <span class="num">
+        var numEl = a.querySelector('.num');
+        var fullText = a.textContent.trim().replace(/\s+/g, ' ');
+        return {
+            slug: a.dataset.page,
+            title: fullText,
+            el: a
+        };
+    });
+
+    function findIndexBySlug(slug) {
+        for (var i = 0; i < pages.length; i++) {
+            if (pages[i].slug === slug) return i;
+        }
+        return -1;
+    }
+
+    function setActiveSidebar(slug) {
+        links.forEach(function (a) {
+            a.classList.toggle('active', a.dataset.page === slug);
+        });
+    }
+
+    function updateNavButtons(currentIndex) {
+        var btnPrev = document.getElementById('btn-prev');
+        var btnNext = document.getElementById('btn-next');
+
+        var prevPage = pages[currentIndex - 1];
+        var nextPage = pages[currentIndex + 1];
+
+        if (prevPage) {
+            btnPrev.style.display = 'flex';
+            btnPrev.title = prevPage.title;
+            btnPrev.dataset.targetSlug = prevPage.slug;
+        } else {
+            btnPrev.style.display = 'none';
+        }
+
+        if (nextPage) {
+            btnNext.style.display = 'flex';
+            btnNext.title = nextPage.title;
+            btnNext.dataset.targetSlug = nextPage.slug;
+        } else {
+            btnNext.style.display = 'none';
+        }
+    }
+
+    function goToPage(slug) {
+        var index = findIndexBySlug(slug);
+        if (index === -1) return;
+
+        setActiveSidebar(slug);
+        updateNavButtons(index);
+
+        // TODO: di sini nanti ganti dengan fetch konten section dari backend/route asli.
+        // Untuk sekarang, kita hanya update judul h1 sebagai placeholder.
+        var articleTitle = document.querySelector('#article-content h1');
+        if (articleTitle) {
+            articleTitle.textContent = pages[index].title;
+        }
+
+        document.getElementById('reader').scrollTop = 0;
+    }
+
+    // Klik link sidebar -> pindah halaman tanpa reload
+    links.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            e.preventDefault();
+            goToPage(a.dataset.page);
+        });
+    });
+
+    // Klik tombol panah sebelumnya/selanjutnya
+    document.getElementById('btn-prev').addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = this.dataset.targetSlug;
+        if (target) goToPage(target);
+    });
+
+    document.getElementById('btn-next').addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = this.dataset.targetSlug;
+        if (target) goToPage(target);
+    });
+
+    // Inisialisasi: halaman aktif pertama kali (yang sudah punya class "active" dari server, atau index 0)
+    var initialActive = document.querySelector('#sidebar-menu a.active[data-page]');
+    var initialSlug = initialActive ? initialActive.dataset.page : (pages[0] ? pages[0].slug : null);
+    if (initialSlug) {
+        var initialIndex = findIndexBySlug(initialSlug);
+        updateNavButtons(initialIndex);
+    }
+})();
+</script>
 
 </body>
 </html>
