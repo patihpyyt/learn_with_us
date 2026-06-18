@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\AiChatController;
 use App\Http\Controllers\LearningController;
 use App\Http\Controllers\ProfileController;
@@ -17,12 +18,13 @@ Route::get('/', function () {
     ]);
 });
 
-// --- 2. Route AI (Public) ---
 Route::get('/ai', [AiChatController::class, 'index'])->name('ai');
 // Menggunakan method 'prosesAI' sesuai dengan yang ada di Controller kamu
 Route::post('/ai/chat', [AiChatController::class, 'prosesAI'])->name('ai.chat'); 
 
-// Route helper untuk ambil data chat by ID (untuk kebutuhan JS)
+
+Route::get('/api/content/{slug}', [ContentController::class, 'getApiContent']);
+
 Route::get('/ai/chat/{id}', function ($id) {
     $chat = \App\Models\AiCalculation::findOrFail($id);
     return response()->json([
@@ -31,7 +33,18 @@ Route::get('/ai/chat/{id}', function ($id) {
     ]);
 })->middleware('auth'); 
 
+// routes/web.php
 
+Route::get('/materi/{slug}', function ($slug) {
+    // Ubah slug (misal 'bab1') jadi judul yang bagus (misal 'Bab 1')
+    $title = ucwords(str_replace('-', ' ', $slug)); 
+    
+    if (view()->exists('materi.' . $slug)) {
+        // Kirim $title ke view
+        return view('materi.' . $slug, ['title' => $title]);
+    }
+    abort(404);
+})->name('materi.show');
 
 Route::get('/ai', [AiChatController::class, 'index'])->name('ai.index');
 Route::post('/ai/proses', [AiChatController::class, 'prosesAI'])->name('ai.chat');

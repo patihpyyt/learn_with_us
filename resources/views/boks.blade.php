@@ -343,7 +343,7 @@ body {
     margin-top: 24px;
 }
 
-/* ─── NAVIGASI HALAMAN (PANAH POLOS MENTOK TEPI AREA KONTEN) ─── */
+/* ─── NAVIGASI HALAMAN ─── */
 .page-nav-float {
     position: absolute;
     top: 50%;
@@ -354,11 +354,15 @@ body {
     color: #c4cdd6;
     text-decoration: none;
     transition: color .15s;
-    z-index: 10;
+    z-index: 9999; 
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 10px;
+    border-radius: 50%;
 }
 
 .page-nav-float:hover {
     color: #2c4a6e;
+    background: #f0f0f0;
 }
 
 .page-nav-float-prev {
@@ -384,7 +388,7 @@ body {
             Riwayat Chat Kamu
         </div>
 
-        @forelse($riwayat as $chat)
+        @forelse($riwayat ?? [] as $chat)
             <a href="{{ url('/ai?chat_id=' . $chat->id) }}" class="menu-history-item" title="{{ $chat->input_data }}">
                 <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span>{{ Str::limit($chat->input_data, 22) }}</span>
@@ -404,76 +408,72 @@ body {
         <a href="#" data-page="ucapan-terima-kasih" class="menu-sub">Ucapan Terima Kasih</a>
         <a href="#" data-page="umpan-balik-saran" class="menu-sub">Umpan Balik &amp; Saran</a>
 
-        <!-- BAB 1 -->
-        <a href="#" data-page="bab1" class="menu-chapter">
-            <span class="num">1</span> Pengenalan R &amp; Rstudio
-        </a>
-        <a href="#" data-page="bab1-1" class="menu-sub-num">
-            <span class="num">1.1</span> Sejarah Singkat R
-        </a>
-        <a href="#" data-page="bab1-2" class="menu-sub-num">
-            <span class="num">1.2</span> Tentang Rstudio
-        </a>
+   <a href="#" data-page="bab1" class="menu-chapter">
+    <span class="num">1</span> Pengenalan R &amp; Rstudio
+</a>
 
+<a href="#" data-page="bab1-1" class="menu-sub-num">
+    <span class="num">1.1</span> Sejarah Singkat R
+</a>
 
-        <a href="#" data-page="bab1-3" class="menu-sub-num">
-            <span class="num">1.3</span> Instalasi R dan RStudio
-        </a>
-            <a href="#" data-page="bab1-3-1" class="menu-sub-sub">
-                <span class="num">1.3.1</span> Instalasi R
-            </a>
-            <a href="#" data-page="bab1-3-2" class="menu-sub-sub">
-                <span class="num">1.3.2</span> Instalasi RStudio
-            </a>
-            <a href="#" data-page="bab1-3-3" class="menu-sub-sub">
-                <span class="num">1.3.3</span> Konfigurasi Awal
-            </a>
+<a href="#" data-page="bab1-2" class="menu-sub-num">
+    <span class="num">1.2</span> Tentang Rstudio
+</a>
 
+<a href="#" data-page="bab1-3" class="menu-sub-num">
+    <span class="num">1.3</span> Instalasi R dan RStudio
+</a>
+    <a href="#" data-page="bab1-3-1" class="menu-sub-sub">
+        <span class="num">1.3.1</span> Instalasi R
+    </a>
+    <a href="#" data-page="bab1-3-2" class="menu-sub-sub">
+        <span class="num">1.3.2</span> Instalasi RStudio
+    </a>
+    <a href="#" data-page="bab1-3-3" class="menu-sub-sub">
+        <span class="num">1.3.3</span> Konfigurasi Awal
+    </a>
 
-        <a href="#" data-page="bab1-4" class="menu-sub-num">
-            <span class="num">1.4</span> Video Instalasi R &amp; RStudio
-        </a>
-            <a href="#" data-page="bab1-4-1" class="menu-sub-sub">
-                <span class="num">1.4.1</span> Persiapan Instalasi
-            </a>
-            <a href="#" data-page="bab1-4-2" class="menu-sub-sub">
-                <span class="num">1.4.2</span> Proses Instalasi
-            </a>
-            <a href="#" data-page="bab1-4-3" class="menu-sub-sub">
-                <span class="num">1.4.3</span> Syarat Titik Stasioner (Maksimum/Minimum)
-            </a>
+<a href="#" data-page="bab1-4" class="menu-sub-num">
+    <span class="num">1.4</span> Video Instalasi R &amp; RStudio
+</a>
+    <a href="#" data-page="bab1-4-1" class="menu-sub-sub">
+        <span class="num">1.4.1</span> Persiapan Instalasi
+    </a>
+    <a href="#" data-page="bab1-4-2" class="menu-sub-sub">
+        <span class="num">1.4.2</span> Proses Instalasi
+    </a>
+    <a href="#" data-page="bab1-4-3" class="menu-sub-sub">
+        <span class="num">1.4.3</span> Syarat Titik Stasioner (Maksimum/Minimum)
+    </a>
 
+<a href="#" data-page="bab1-5" class="menu-sub-num">
+    <span class="num">1.5</span> Proses Penyelesaian Matematis
+</a>
+    <a href="#" data-page="bab1-5-1" class="menu-sub-sub">
+        <span class="num">1.5.1</span> Menentukan Turunan Pertama Fungsi T(x)
+    </a>
+    <a href="#" data-page="bab1-5-2" class="menu-sub-sub">
+        <span class="num">1.5.2</span> Menerapkan Syarat Nilai Minimum
+    </a>
+    <a href="#" data-page="bab1-5-3" class="menu-sub-sub">
+        <span class="num">1.5.3</span> Perhitungan Nilai x Nyata
+    </a>
 
-        <a href="#" data-page="bab1-5" class="menu-sub-num">
-            <span class="num">1.5</span> Proses Penyelesaian Matematis
-        </a>
-            <a href="#" data-page="bab1-5-1" class="menu-sub-sub">
-                <span class="num">1.5.1</span> Menentukan Turunan Pertama Fungsi T(x)
-            </a>
-            <a href="#" data-page="bab1-5-2" class="menu-sub-sub">
-                <span class="num">1.5.2</span> Menerapkan Syarat Nilai Minimum
-            </a>
-            <a href="#" data-page="bab1-5-3" class="menu-sub-sub">
-                <span class="num">1.5.3</span>Perhitungan Nilai x Nyata
-            </a>
-        <a href="#" data-page="bab1-6" class="menu-sub-num">
-            <span class="num">1.6</span> Analisis Hasil dan Kesimpulan Studi Kasus
-        </a>
-            <a href="#" data-page="bab1-6-1" class="menu-sub-sub">
-                <span class="num">1.6.1</span> Menghitung Waktu Respon Minimum
-            </a>
-            <a href="#" data-page="bab1-6-2" class="menu-sub-sub">
-                <span class="num">1.6.2</span> Interpretasi Grafik Fungsi Keseluruhan
-            </a>
-            <a href="#" data-page="bab1-6-3" class="menu-sub-sub">
-                <span class="num">1.6.3</span> Rekomendasi Batas Optimal Kapasitas Server
-            </a>
-
-             <a href="#" data-page="bab1-6-4" class="menu-sub-sub">
-                <span class="num">1.6.4</span> Kesimpulan Akhir Bab 1
-            </a>
-
-
+<a href="#" data-page="bab1-6" class="menu-sub-num">
+    <span class="num">1.6</span> Analisis Hasil dan Kesimpulan Studi Kasus
+</a>
+    <a href="#" data-page="bab1-6-1" class="menu-sub-sub">
+        <span class="num">1.6.1</span> Menghitung Waktu Respon Minimum
+    </a>
+    <a href="#" data-page="bab1-6-2" class="menu-sub-sub">
+        <span class="num">1.6.2</span> Interpretasi Grafik Fungsi Keseluruhan
+    </a>
+    <a href="#" data-page="bab1-6-3" class="menu-sub-sub">
+        <span class="num">1.6.3</span> Rekomendasi Batas Optimal Kapasitas Server
+    </a>
+    <a href="#" data-page="bab1-6-4" class="menu-sub-sub">
+        <span class="num">1.6.4</span> Kesimpulan Akhir Bab 1
+    </a>
 
         <!-- BAB 2 -->
         <a href="#" data-page="bab2" class="menu-chapter">
@@ -711,12 +711,16 @@ body {
     </header>
 
     <div class="reader" id="reader">
-        <div class="article" id="article-content">
-            <h1>Kata Penghantar</h1>
-            <h2>2.1 Definisi dan Aspek</h2>
-            <p>Isi materi nanti taruh di sini.</p>
+    <div class="article" id="article-content">
+        
+        <h1 id="article-title">Judul Akan Muncul di Sini</h1>
+        
+        <div id="article-content-body">
+            <p>Silakan pilih menu di samping untuk memuat materi.</p>
         </div>
+        
     </div>
+</div>
 
     <a href="#" class="page-nav-float page-nav-float-prev" id="btn-prev" aria-label="Halaman sebelumnya">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -729,105 +733,81 @@ body {
 
 <script>
 (function () {
-    // Ambil semua link sidebar yang punya data-page, urutannya sesuai urutan tampil di sidebar
-    var links = Array.prototype.slice.call(
-        document.querySelectorAll('#sidebar-menu a[data-page]')
-    );
 
-    // Susun array { slug, title } sesuai urutan di sidebar
-    var pages = links.map(function (a) {
-        // Ambil teks judul, buang nomor seperti "1.1" jika ada di dalam <span class="num">
-        var numEl = a.querySelector('.num');
-        var fullText = a.textContent.trim().replace(/\s+/g, ' ');
-        return {
-            slug: a.dataset.page,
-            title: fullText,
-            el: a
-        };
-    });
-
-    function findIndexBySlug(slug) {
-        for (var i = 0; i < pages.length; i++) {
-            if (pages[i].slug === slug) return i;
-        }
-        return -1;
-    }
-
-    function setActiveSidebar(slug) {
-        links.forEach(function (a) {
-            a.classList.toggle('active', a.dataset.page === slug);
-        });
-    }
-
-    function updateNavButtons(currentIndex) {
-        var btnPrev = document.getElementById('btn-prev');
-        var btnNext = document.getElementById('btn-next');
-
-        var prevPage = pages[currentIndex - 1];
-        var nextPage = pages[currentIndex + 1];
-
-        if (prevPage) {
-            btnPrev.style.display = 'flex';
-            btnPrev.title = prevPage.title;
-            btnPrev.dataset.targetSlug = prevPage.slug;
-        } else {
-            btnPrev.style.display = 'none';
-        }
-
-        if (nextPage) {
-            btnNext.style.display = 'flex';
-            btnNext.title = nextPage.title;
-            btnNext.dataset.targetSlug = nextPage.slug;
-        } else {
-            btnNext.style.display = 'none';
-        }
-    }
+    const links = Array.from(document.querySelectorAll('#sidebar-menu a[data-page]'));
 
     function goToPage(slug) {
-        var index = findIndexBySlug(slug);
-        if (index === -1) return;
+        fetch(`/api/content/${slug}`)
+            .then(res => res.json())
+            .then(data => {
 
-        setActiveSidebar(slug);
-        updateNavButtons(index);
+                document.getElementById('article-title').innerText = data.title;
+                document.getElementById('article-content-body').innerHTML = data.body;
 
-        // TODO: di sini nanti ganti dengan fetch konten section dari backend/route asli.
-        // Untuk sekarang, kita hanya update judul h1 sebagai placeholder.
-        var articleTitle = document.querySelector('#article-content h1');
-        if (articleTitle) {
-            articleTitle.textContent = pages[index].title;
-        }
+                links.forEach(a => {
+                    a.classList.toggle('active', a.dataset.page === slug);
+                });
 
-        document.getElementById('reader').scrollTop = 0;
+                updateNav(slug);
+            })
+            .catch(() => {
+                document.getElementById('article-title').innerText = "Error";
+                document.getElementById('article-content-body').innerHTML = "Konten tidak ditemukan";
+            });
     }
 
-    // Klik link sidebar -> pindah halaman tanpa reload
-    links.forEach(function (a) {
-        a.addEventListener('click', function (e) {
+    function updateNav(slug) {
+
+        const idx = links.findIndex(a => a.dataset.page === slug);
+
+        const prev = document.getElementById('btn-prev');
+        const next = document.getElementById('btn-next');
+
+        if (idx > 0) {
+            prev.style.display = 'block';
+            prev.dataset.target = links[idx - 1].dataset.page;
+        } else {
+            prev.style.display = 'none';
+        }
+
+        if (idx < links.length - 1) {
+            next.style.display = 'block';
+            next.dataset.target = links[idx + 1].dataset.page;
+        } else {
+            next.style.display = 'none';
+        }
+    }
+
+    // CLICK SIDEBAR
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            goToPage(a.dataset.page);
+            goToPage(this.dataset.page);
         });
     });
 
-    // Klik tombol panah sebelumnya/selanjutnya
+    // PREV
     document.getElementById('btn-prev').addEventListener('click', function (e) {
         e.preventDefault();
-        var target = this.dataset.targetSlug;
-        if (target) goToPage(target);
+        if (this.dataset.target) {
+            goToPage(this.dataset.target);
+        }
     });
 
+    // NEXT
     document.getElementById('btn-next').addEventListener('click', function (e) {
         e.preventDefault();
-        var target = this.dataset.targetSlug;
-        if (target) goToPage(target);
+        if (this.dataset.target) {
+            goToPage(this.dataset.target);
+        }
     });
 
-    // Inisialisasi: halaman aktif pertama kali (yang sudah punya class "active" dari server, atau index 0)
-    var initialActive = document.querySelector('#sidebar-menu a.active[data-page]');
-    var initialSlug = initialActive ? initialActive.dataset.page : (pages[0] ? pages[0].slug : null);
-    if (initialSlug) {
-        var initialIndex = findIndexBySlug(initialSlug);
-        updateNavButtons(initialIndex);
-    }
+   // INIT FIRST PAGE
+const first = document.querySelector('#sidebar-menu a.active');
+if (first && first.dataset.page) {
+    goToPage(first.dataset.page);
+}
+
 })();
 </script>
 
