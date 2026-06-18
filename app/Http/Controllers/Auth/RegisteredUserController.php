@@ -1,32 +1,50 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
+use Illuminate\View\View; // Pastikan import ini ada
 
-// ...
-
-public function store(Request $request): RedirectResponse
+class RegisteredUserController extends Controller
 {
-    $request->validate([
-        'name' => ['required', 'string', 'max', '255'],
-        'email' => ['required', 'string', 'lowercase', 'email', 'max', '255', 'unique:'.User::class],
-        'password' => ['required', 'confirmed', Rules\Password::defaults()],
-    ]);
+    /**
+     * Tampilkan halaman registrasi (Fungsi yang hilang)
+     */
+    public function create(): View
+    {
+        return view('auth.register');
+    }
 
-    $user = User::create([
-        'name' => $request->name,
-        'email' => $request->email,
-        'password' => Hash::make($request->password),
-    ]);
+    /**
+     * Handle registrasi
+     */
+    public function store(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
 
-    // TARUH KODE INI DI SINI (Otomatis set role mahasiswa)
-    $user->assignRole('mahasiswa');
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
-    event(new Registered($user));
+        $user->assignRole('mahasiswa');
 
-    Auth::login($user);
+        event(new Registered($user));
 
-    // Kita arahkan ke dashboard umum dulu
-    return redirect(route('dashboard', absolute: false));
+        Auth::login($user);
+
+        return redirect(route('dashboard', absolute: false));
+    }
 }

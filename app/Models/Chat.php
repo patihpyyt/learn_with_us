@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Chat extends Model
 {
     protected $table = 'chats'; 
-<<<<<<< HEAD
+
     public function chat(Request $request, GroqService $ai) {
     // Pakai session_id dari request, kalau kosong bikin baru (UUID)
     $sessionId = $request->input('chat_session_id') ?? \Illuminate\Support\Str::uuid();
@@ -25,7 +25,6 @@ class Chat extends Model
     
     return response()->json(['answer' => $answer, 'chat_session_id' => $sessionId]);
 }
-=======
->>>>>>> upstream/main
+
     
 }

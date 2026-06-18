@@ -12,70 +12,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-<<<<<<< HEAD
-
-                    <x-nav-link :href="route('ai')" :active="request()->routeIs('ai')">
-=======
-                    {{-- Tambahan link menu AI di navbar biar gampang diakses --}}
                     <x-nav-link href="/ai" :active="request()->is('ai')">
->>>>>>> upstream/main
                         {{ __('AI Assistant') }}
                     </x-nav-link>
                 </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-<<<<<<< HEAD
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                           <div>
-    {{ Auth::check() ? Auth::user()->name : 'Tamu' }}
-</div>
-
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-                                <x-slot name="content">
-
-                @if(Auth::check())
-
-                    <x-dropdown-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
-                    </x-dropdown-link>
-
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-
-                        <x-dropdown-link :href="route('logout')"
-                            onclick="event.preventDefault(); this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                        </x-dropdown-link>
-
-                    </form>
-
-                @else
-
-                    <x-dropdown-link href="/login">
-                        Login
-                    </x-dropdown-link>
-
-                @endif
-
-                </x-slot>
-                </x-dropdown>
-=======
                 @auth
-                    {{-- Muncul jika USER SUDAH LOGIN --}}
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
-
                                 <div class="ms-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -83,30 +31,41 @@
                                 </div>
                             </button>
                         </x-slot>
-
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
-                            </x-dropdown-link>
-
+                            <x-dropdown-link :href="route('profile.edit')">{{ __('Profile') }}</x-dropdown-link>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
+                                <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
                     </x-dropdown>
                 @else
-                    {{-- Muncul jika USER BELUM LOGIN --}}
-                    <div class="space-x-4">
-                        <a href="/login" class="text-sm text-gray-700 hover:text-gray-900 font-medium">Log in</a>
-                        <a href="/register" class="text-sm text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-2 rounded-md font-medium transition">Register</a>
+                    {{-- Belum login: tampilkan tombol "Tamu" dengan dropdown berisi Login & Register --}}
+                    <div x-data="{ openTamu: false }" class="relative">
+                        <button @click="openTamu = ! openTamu" @click.away="openTamu = false" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <div>Tamu</div>
+                            <div class="ms-1">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+
+                        <div x-show="openTamu"
+                             x-transition
+                             @click.away="openTamu = false"
+                             class="absolute right-0 mt-2 w-48 rounded-md shadow-lg z-50"
+                             style="display: none;">
+                            <div class="rounded-md ring-1 ring-black ring-opacity-5 py-3 bg-white space-y-2 px-3">
+                                <p class="text-xs text-gray-400 text-center px-1">Login untuk menyimpan riwayat chat kamu</p>
+                                <a href="/login" class="block text-center text-sm text-white bg-indigo-600 hover:bg-indigo-700 px-3 py-2 rounded-md font-medium transition">Log in</a>
+                                <a href="/register" class="block text-center text-sm text-gray-700 hover:text-gray-900 font-medium px-3 py-2 hover:bg-gray-50 rounded-md transition">Register</a>
+                            </div>
+                        </div>
                     </div>
                 @endauth
->>>>>>> upstream/main
             </div>
 
             <div class="-me-2 flex items-center sm:hidden">
@@ -122,66 +81,32 @@
 
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="/ai" :active="request()->is('ai')">
-                {{ __('AI Assistant') }}
-            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">{{ __('Dashboard') }}</x-responsive-nav-link>
+            <x-responsive-nav-link href="/ai" :active="request()->is('ai')">{{ __('AI Assistant') }}</x-responsive-nav-link>
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-200">
-<<<<<<< HEAD
-            <div class="px-4">
-    <div class="font-medium text-base text-gray-800">
-        {{ Auth::check() ? Auth::user()->name : 'Tamu' }}
-    </div>
-
-    @if(Auth::check())
-        <div class="font-medium text-sm text-gray-500">
-            {{ Auth::user()->email }}
-        </div>
-    @endif
-</div>
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-=======
             @auth
-                {{-- Mode Mobile: Tampilkan info akun jika login --}}
                 <div class="px-4">
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                     <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
-
                 <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('profile.edit')">
-                        {{ __('Profile') }}
->>>>>>> upstream/main
-                    </x-responsive-nav-link>
-
+                    <x-responsive-nav-link :href="route('profile.edit')">{{ __('Profile') }}</x-responsive-nav-link>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <x-responsive-nav-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
+                        <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-responsive-nav-link>
                     </form>
                 </div>
             @else
-                {{-- Mode Mobile: Tampilkan link login jika guest --}}
-                <div class="px-4 py-2 space-y-2">
+                {{-- Mobile: tetap tampilkan label "Tamu" + dua link login/register di bawahnya --}}
+                <div class="px-4">
+                    <div class="font-medium text-base text-gray-800">Tamu</div>
+                    <div class="font-medium text-sm text-gray-500">Login agar riwayat chat tersimpan</div>
+                </div>
+                <div class="px-4 py-2 space-y-2 mt-2">
                     <x-responsive-nav-link href="/login">Log In</x-responsive-nav-link>
                     <x-responsive-nav-link href="/register">Register</x-responsive-nav-link>
                 </div>
