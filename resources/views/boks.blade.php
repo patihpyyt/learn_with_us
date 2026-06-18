@@ -374,7 +374,7 @@ body {
 }
 
 .menu a.active {
-    background: #6b7f93 !important; /* Gunakan !important jika warna tidak berubah */
+    background: #6b7f93 !important; 
     color: #ffffff !important;
     font-weight: 600;
 }
@@ -408,13 +408,13 @@ body {
 
 
         <!-- KATA PENGANTAR -->
-        <a href="#" data-page="kata-pengantar" class="menu-chapter active">Kata Pengantar</a>
+        <a href="#" data-page="Pengantar-Sainstik-untuk-sains-data" class="menu-chapter">Kata Pengantar</a>
         <a href="#" data-page="sasaran-pembaca" class="menu-sub">Sasaran Pembaca</a>
         <a href="#" data-page="tentang-penulis" class="menu-sub">Tentang Penulis</a>
         <a href="#" data-page="ucapan-terima-kasih" class="menu-sub">Ucapan Terima Kasih</a>
         <a href="#" data-page="umpan-balik-saran" class="menu-sub">Umpan Balik &amp; Saran</a>
 
-   <a href="#" data-page="bab1" class="menu-chapter">
+   <a href="#" data-page="bab-1" class="menu-chapter">
     <span class="num">1</span> Pengenalan R &amp; Rstudio
 </a>
 
@@ -482,7 +482,7 @@ body {
     </a>
 
         <!-- BAB 2 -->
-        <a href="#" data-page="bab2" class="menu-chapter">
+        <a href="#" data-page="bab-2" class="menu-chapter">
             <span class="num">2</span> Landasan Teori Fungsi Turunan
         </a>
         <a href="#" data-page="bab2-1" class="menu-sub-num">
@@ -742,52 +742,50 @@ body {
 
     const links = Array.from(document.querySelectorAll('#sidebar-menu a[data-page]'));
 
+   const chapterLinks = Array.from(document.querySelectorAll(
+    '#sidebar-menu a.menu-chapter[data-page]'
+));
 
     function goToPage(slug) {
-    fetch(`/api/content/${slug}`)
-        .then(res => res.json())
-        .then(data => {
-            document.getElementById('article-title').innerText = data.title;
-            document.getElementById('article-content-body').innerHTML = data.body;
+        fetch(`/api/content/${slug}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('article-title').innerText = data.title;
+                document.getElementById('article-content-body').innerHTML = data.body;
 
-            // --- BAGIAN PENTING UNTUK PINDAH WARNA ---
-            // 1. Hapus class 'active' dari SEMUA menu
-            links.forEach(a => a.classList.remove('active'));
+                links.forEach(a => a.classList.remove('active'));
+                const activeLink = links.find(a => a.dataset.page === slug);
+                if (activeLink) activeLink.classList.add('active');
 
-            // 2. Tambahkan class 'active' HANYA ke menu yang slug-nya cocok
-            const activeLink = links.find(a => a.dataset.page === slug);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-            // ------------------------------------------
-
-            updateNav(slug);
-        });
-}
+                updateNav(slug);
+                document.getElementById('reader').scrollTop = 0;
+            });
+    }
 
     function updateNav(slug) {
+        let idx = chapterLinks.findIndex(a => a.dataset.page === slug);
+        console.log('updateNav slug:', slug, '| idx:', idx);
+        console.log('chapterLinks:', chapterLinks.map(a => a.dataset.page))
 
-        const idx = links.findIndex(a => a.dataset.page === slug);
+        if (idx === -1) {
+            const allSlugs = links.map(a => a.dataset.page);
+            const posInAll = allSlugs.indexOf(slug);
+            for (let i = posInAll; i >= 0; i--) {
+                const found = chapterLinks.findIndex(a => a.dataset.page === links[i].dataset.page);
+                if (found !== -1) { idx = found; break; }
+            }
+        }
 
         const prev = document.getElementById('btn-prev');
         const next = document.getElementById('btn-next');
 
-        if (idx > 0) {
-            prev.style.display = 'block';
-            prev.dataset.target = links[idx - 1].dataset.page;
-        } else {
-            prev.style.display = 'none';
-        }
+        prev.style.display = idx > 0 ? 'flex' : 'none';
+        if (idx > 0) prev.dataset.target = chapterLinks[idx - 1].dataset.page;
 
-        if (idx < links.length - 1) {
-            next.style.display = 'block';
-            next.dataset.target = links[idx + 1].dataset.page;
-        } else {
-            next.style.display = 'none';
-        }
+        next.style.display = idx < chapterLinks.length - 1 ? 'flex' : 'none';
+        if (idx < chapterLinks.length - 1) next.dataset.target = chapterLinks[idx + 1].dataset.page;
     }
 
-    // CLICK SIDEBAR
     links.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
@@ -795,27 +793,17 @@ body {
         });
     });
 
-    // PREV
     document.getElementById('btn-prev').addEventListener('click', function (e) {
         e.preventDefault();
-        if (this.dataset.target) {
-            goToPage(this.dataset.target);
-        }
+        if (this.dataset.target) goToPage(this.dataset.target);
     });
 
-    // NEXT
     document.getElementById('btn-next').addEventListener('click', function (e) {
         e.preventDefault();
-        if (this.dataset.target) {
-            goToPage(this.dataset.target);
-        }
+        if (this.dataset.target) goToPage(this.dataset.target);
     });
 
-   // INIT FIRST PAGE
-const first = document.querySelector('#sidebar-menu a.active');
-if (first && first.dataset.page) {
-    goToPage(first.dataset.page);
-}
+    goToPage('Pengantar-Sainstik-untuk-sains-data');
 
 })();
 </script>

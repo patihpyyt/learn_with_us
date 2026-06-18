@@ -32,10 +32,13 @@ Route::get('/ai/chat/{id}', function ($id) {
     ]);
 })->middleware('auth');
 
+Route::middleware(['auth', 'role:dosen'])->prefix('dosen')->name('dosen.')->group(function () {
+    Route::get('/materi', [DosenMateriController::class, 'index'])->name('materi.index');
+});
+
 // --- 4. Dashboard & Materi ---
 Route::get('/dashboard', [LearningController::class, 'index'])->name('dashboard');
-// Jika Anda menggunakan AJAX untuk memuat materi di boks.blade, 
-// pastikan JS memanggil /api/content/{slug} seperti di atas.
+
 
 // --- 5. Auth & Profile ---
 Route::middleware('auth')->group(function () {

@@ -6,18 +6,22 @@ use Illuminate\Support\Facades\View;
 
 class ContentController extends Controller
 {
-    public function getContent($slug)
-    {
-        // Pastikan file ada di resources/views/materi/bab1.blade.php
-        $viewPath = 'materi.' . $slug;
+  public function getContent($slug)
+{
+    $viewPath = 'materi.' . $slug;
 
-        if (!View::exists($viewPath)) {
-            return response()->json(['title' => 'Tidak Ditemukan', 'body' => 'Konten belum dibuat.'], 404);
-        }
-
-        return response()->json([
-            'title' => 'Judul untuk ' . $slug,
-            'body' => view($viewPath)->render()
-        ]);
+    if (!View::exists($viewPath)) {
+        return response()->json(['title' => 'Error', 'body' => 'Konten belum tersedia'], 404);
     }
+
+    // --- LOGIKA INI YANG MEMBUAT SPASI ---
+    // 1. Ganti tanda hubung (-) dengan spasi
+    // 2. Gunakan ucwords agar huruf pertama jadi kapital
+    $title = ucwords(str_replace('-', ' ', $slug));
+
+    return response()->json([
+        'title' => $title, 
+        'body' => view($viewPath)->render()
+    ]);
+}
 }
