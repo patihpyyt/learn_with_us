@@ -103,8 +103,8 @@ body {
 }
 
 .menu a.active {
-    background: #6b7f93;
-    color: #ffffff;
+    background: #6b7f93 !important;
+    color: #ffffff !important;
     font-weight: 600;
 }
 
@@ -267,10 +267,12 @@ body {
     border-color: #1e3550;
 }
 
+/* ─── READER: parent positioning untuk tombol panah ─── */
 .reader {
     flex: 1;
     overflow-y: auto;
     background: #ffffff;
+    position: relative; /* WAJIB supaya tombol panah ngacu ke area putih ini, bukan ke .main */
 }
 
 .reader::-webkit-scrollbar { width: 8px; }
@@ -343,7 +345,7 @@ body {
     margin-top: 24px;
 }
 
-/* ─── NAVIGASI HALAMAN ─── */
+
 .page-nav-float {
     position: absolute;
     top: 50%;
@@ -354,10 +356,11 @@ body {
     color: #c4cdd6;
     text-decoration: none;
     transition: color .15s;
-    z-index: 9999; 
-    background: rgba(255, 255, 255, 0.8); 
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.85);
     padding: 10px;
     border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
 .page-nav-float:hover {
@@ -366,17 +369,11 @@ body {
 }
 
 .page-nav-float-prev {
-    left: 8px;
+    left: 12px;
 }
 
 .page-nav-float-next {
-    right: 8px;
-}
-
-.menu a.active {
-    background: #6b7f93 !important; 
-    color: #ffffff !important;
-    font-weight: 600;
+    right: 12px;
 }
 </style>
 </head>
@@ -384,7 +381,7 @@ body {
 
 <aside class="sidebar">
     <div class="logo">
-        <img src="https://placehold.co/140x140" alt="logo">
+        <img src="img/udin.png" alt="logo">
     </div>
 
     <div class="menu" id="sidebar-menu">
@@ -408,7 +405,7 @@ body {
 
 
         <!-- KATA PENGANTAR -->
-        <a href="#" data-page="Pengantar-Sainstik-untuk-sains-data" class="menu-chapter">Kata Pengantar</a>
+        <a href="#" data-page="Kata-Pengantar-Fungsi-Turunan-Intrgral" class="menu-chapter">Kata Pengantar</a>
         <a href="#" data-page="sasaran-pembaca" class="menu-sub">Sasaran Pembaca</a>
         <a href="#" data-page="tentang-penulis" class="menu-sub">Tentang Penulis</a>
         <a href="#" data-page="ucapan-terima-kasih" class="menu-sub">Ucapan Terima Kasih</a>
@@ -538,7 +535,7 @@ body {
             
 
         <!-- BAB 3 -->
-        <a href="#" data-page="bab3" class="menu-chapter">
+        <a href="#" data-page="bab-3" class="menu-chapter">
             <span class="num">3</span> Statistik Deskriptif
         </a>
         <a href="#" data-page="bab3-1" class="menu-sub-num">
@@ -716,39 +713,47 @@ body {
         </div>
     </header>
 
+    <!-- ✅ Tombol panah sekarang DI DALAM .reader, biar ngacu ke area putih ini -->
     <div class="reader" id="reader">
-    <div class="article" id="article-content">
-        
-        <h1 id="article-title">Judul Akan Muncul di Sini</h1>
-        
-        <div id="article-content-body">
-            <p>Silakan pilih menu di samping untuk memuat materi.</p>
+        <div class="article" id="article-content">
+            <h1 id="article-title">Memuat...</h1>
+            <div id="article-content-body">
+                <p>Sedang memuat konten...</p>
+            </div>
         </div>
-        
+
+        <a href="#" class="page-nav-float page-nav-float-prev" id="btn-prev" aria-label="Halaman sebelumnya">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </a>
+
+        <a href="#" class="page-nav-float page-nav-float-next" id="btn-next" aria-label="Halaman selanjutnya">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
     </div>
-</div>
-
-    <a href="#" class="page-nav-float page-nav-float-prev" id="btn-prev" aria-label="Halaman sebelumnya">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    </a>
-
-    <a href="#" class="page-nav-float page-nav-float-next" id="btn-next" aria-label="Halaman selanjutnya">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </a>
 </div>
 
 <script>
 (function () {
 
+    const KATA_PENGANTAR_SLUG = 'Kata-Pengantar-Fungsi-Turunan-Intrgral';
+
     const links = Array.from(document.querySelectorAll('#sidebar-menu a[data-page]'));
 
-   const chapterLinks = Array.from(document.querySelectorAll(
-    '#sidebar-menu a.menu-chapter[data-page]'
-));
+    const chapterLinks = Array.from(document.querySelectorAll(
+        '#sidebar-menu a.menu-chapter[data-page]'
+    ));
+
+    // Slug-slug yang sebenarnya cuma anchor di dalam Kata Pengantar
+    const anchorOnlySlugs = ['sasaran-pembaca', 'tentang-penulis', 'ucapan-terima-kasih', 'umpan-balik-saran'];
 
     function goToPage(slug) {
         fetch(`/api/content/${slug}`)
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Slug tidak ditemukan: ' + slug);
+                }
+                return res.json();
+            })
             .then(data => {
                 document.getElementById('article-title').innerText = data.title;
                 document.getElementById('article-content-body').innerHTML = data.body;
@@ -759,13 +764,40 @@ body {
 
                 updateNav(slug);
                 document.getElementById('reader').scrollTop = 0;
+            })
+            .catch(err => {
+                console.error(err);
+                if (slug !== KATA_PENGANTAR_SLUG) {
+                    goToPage(KATA_PENGANTAR_SLUG);
+                }
             });
+    }
+
+    function scrollToAnchor(slug) {
+        const heading = document.getElementById(slug);
+        if (heading) {
+            heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+            // Belum di halaman Kata Pengantar -> load dulu, baru scroll
+            fetch(`/api/content/${KATA_PENGANTAR_SLUG}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('article-title').innerText = data.title;
+                    document.getElementById('article-content-body').innerHTML = data.body;
+                    setTimeout(() => {
+                        const h = document.getElementById(slug);
+                        if (h) h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 50);
+                });
+        }
+
+        links.forEach(a => a.classList.remove('active'));
+        const activeLink = links.find(a => a.dataset.page === slug);
+        if (activeLink) activeLink.classList.add('active');
     }
 
     function updateNav(slug) {
         let idx = chapterLinks.findIndex(a => a.dataset.page === slug);
-        console.log('updateNav slug:', slug, '| idx:', idx);
-        console.log('chapterLinks:', chapterLinks.map(a => a.dataset.page))
 
         if (idx === -1) {
             const allSlugs = links.map(a => a.dataset.page);
@@ -789,7 +821,13 @@ body {
     links.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
-            goToPage(this.dataset.page);
+            const slug = this.dataset.page;
+
+            if (anchorOnlySlugs.includes(slug)) {
+                scrollToAnchor(slug);
+            } else {
+                goToPage(slug);
+            }
         });
     });
 
@@ -803,7 +841,8 @@ body {
         if (this.dataset.target) goToPage(this.dataset.target);
     });
 
-    goToPage('Pengantar-Sainstik-untuk-sains-data');
+    
+    goToPage(KATA_PENGANTAR_SLUG);
 
 })();
 </script>

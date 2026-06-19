@@ -14,9 +14,8 @@ class ContentController extends Controller
         return response()->json(['title' => 'Error', 'body' => 'Konten belum tersedia'], 404);
     }
 
-    // --- LOGIKA INI YANG MEMBUAT SPASI ---
-    // 1. Ganti tanda hubung (-) dengan spasi
-    // 2. Gunakan ucwords agar huruf pertama jadi kapital
+  
+    //  Gunakan ucwords agar huruf pertama jadi kapital
     $title = ucwords(str_replace('-', ' ', $slug));
 
     return response()->json([
