@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ $title }}</title>
+<link rel="icon" href="{{ asset('img/logo.ico') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -383,6 +384,16 @@ body {
     <div class="logo">
         <img src="img/udin.png" alt="logo">
     </div>
+<div style="padding: 0 24px 20px;">
+    <p style="font-weight: 600; font-size: 14px; margin: 0 0 2px; color: #ffffff;">Kelompok 8</p>
+    <p style="font-size: 12px; color: #9fb3c4; margin: 0 0 12px;">Fungsi Turunan dan Integral</p>
+    <p style="font-size: 13px; color: #e8edf2; margin: 0; line-height: 1.9;">
+        M. Iqbal Patih<br>
+        Abimanyu<br>
+        Julianto Baharu<br>
+        M. Rizky Alvarezi N.
+    </p>
+</div>
 
     <div class="menu" id="sidebar-menu">
     @auth

@@ -35,50 +35,69 @@ class AiChatController extends Controller
         return view('ai', compact('riwayat', 'chatMasaLalu'));
     }
 
-  public function prosesAI(Request $request)
-{
-    // UBAH: Sesuai dengan yang dikirim di JavaScript (input_data)
-    $request->validate(['input_data' => 'required']); 
-    
-    $inputData = $request->input('input_data');
-    $prompt = "Kamu adalah asisten AI untuk aplikasi e-book statistika. Tolong analisis, jawab, atau jelaskan data berikut secara ringkas dan mudah dipahami: " . $inputData;
+    public function prosesAI(Request $request)
+    {
+        $request->validate(['input_data' => 'required']);
 
-    if (!session()->has('active_chat_session')) {
-        session(['active_chat_session' => 'sess_' . Str::random(10) . '_' . time()]);
-    }
-    $currentSessionId = session('active_chat_session');
+        $inputData = $request->input('input_data');
 
-    try {
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . env('GROQ_API_KEY'),
-            'Content-Type' => 'application/json',
-        ])->post('https://api.groq.com/openai/v1/chat/completions', [
-            'model' => 'llama-3.3-70b-versatile',
-            'messages' => [['role' => 'user', 'content' => $prompt]]
-        ]);
+        if (!session()->has('active_chat_session')) {
+            session(['active_chat_session' => 'sess_' . Str::random(10) . '_' . time()]);
+        }
+        $currentSessionId = session('active_chat_session');
 
-        if ($response->failed()) {
-            \Log::error('Groq API Error: ' . $response->body());
-            return response()->json(['error' => 'Gagal koneksi ke Groq'], 500);
+        // Ambil riwayat chat dalam sesi yang sama, urut dari paling lama ke terbaru
+        $riwayatChat = AiCalculation::where('chat_session_id', $currentSessionId)
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        // Susun ulang jadi array messages lengkap, gantian user & assistant
+        $messages = [
+            [
+                'role' => 'system',
+                'content' => 'Kamu adalah asisten AI untuk aplikasi e-book statistika. Jawab pertanyaan dengan ringkas dan mudah dipahami, sambil tetap mengingat konteks percakapan sebelumnya dalam sesi ini.'
+            ]
+        ];
+
+        foreach ($riwayatChat as $chat) {
+            $messages[] = ['role' => 'user', 'content' => $chat->input_data];
+            $messages[] = ['role' => 'assistant', 'content' => $chat->ai_response];
         }
 
-        $hasilAI = $response->json()['choices'][0]['message']['content'];
+        // Tambahkan pesan baru dari user di akhir
+        $messages[] = ['role' => 'user', 'content' => $inputData];
 
-        AiCalculation::create([
-            'user_id'         => auth()->id() ?? null,
-            'chat_session_id' => $currentSessionId,
-            'input_data'      => $inputData,
-            'ai_prompt'       => $prompt,
-            'ai_response'     => $hasilAI
-        ]);
+        try {
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . env('GROQ_API_KEY'),
+                'Content-Type' => 'application/json',
+            ])->post('https://api.groq.com/openai/v1/chat/completions', [
+                'model' => 'llama-3.3-70b-versatile',
+                'messages' => $messages
+            ]);
 
-        return response()->json([
-            'answer' => $hasilAI,
-            'chat_session_id' => $currentSessionId
-        ]);
+            if ($response->failed()) {
+                \Log::error('Groq API Error: ' . $response->body());
+                return response()->json(['error' => 'Gagal koneksi ke Groq'], 500);
+            }
 
-    } catch (\Exception $e) {
-        return response()->json(['error' => $e->getMessage()], 500);
+            $hasilAI = $response->json()['choices'][0]['message']['content'];
+
+            AiCalculation::create([
+                'user_id'         => auth()->id() ?? null,
+                'chat_session_id' => $currentSessionId,
+                'input_data'      => $inputData,
+                'ai_prompt'       => $inputData, 
+                'ai_response'     => $hasilAI
+            ]);
+
+            return response()->json([
+                'answer' => $hasilAI,
+                'chat_session_id' => $currentSessionId
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
-}
 }

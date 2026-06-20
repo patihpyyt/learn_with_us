@@ -18,10 +18,10 @@ Route::get('/', function () {
     ]);
 });
 
-// --- 2. API Content (Hanya satu saja!) ---
+
 Route::get('/api/content/{slug}', [ContentController::class, 'getContent']);
 
-// --- 3. AI Chat Routes ---
+
 Route::get('/ai', [AiChatController::class, 'index'])->name('ai.index');
 Route::post('/ai/proses', [AiChatController::class, 'prosesAI'])->name('ai.chat');
 Route::get('/ai/chat/{id}', function ($id) {
@@ -36,11 +36,11 @@ Route::middleware(['auth', 'role:dosen'])->prefix('dosen')->name('dosen.')->grou
     Route::get('/materi', [DosenMateriController::class, 'index'])->name('materi.index');
 });
 
-// --- 4. Dashboard & Materi ---
+
 Route::get('/dashboard', [LearningController::class, 'index'])->name('dashboard');
 
 
-// --- 5. Auth & Profile ---
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

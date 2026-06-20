@@ -66,7 +66,7 @@
 <p>Penyusunan eBook ini tidak akan mungkin terjadi tanpa dukungan dari berbagai pihak. Kami ingin mengucapkan terima kasih kepada:</p>
 
 <ul>
-    <p><strong>Dosen Pengampu Mata Kuliah Kalkulus</strong> atas bimbingan dan arahan selama proses pembelajaran.</p>
+    <p><strong>Ibu Indah Riezky Pratiwi</strong> selaku Dosen Pengampu Mata Kuliah Kalkulus, atas bimbingan, arahan, dan ilmu yang telah diberikan selama proses pembelajaran sehingga kelompok kami dapat menyelesaikan eBook ini dengan baik.</p>
     <p><strong>Rekan Kelompok 8</strong> atas kerja sama dan kontribusi dalam menyusun materi ini.</p>
     <p><strong>Institusi</strong> yang telah menyediakan sumber daya dan fasilitas yang diperlukan selama proses penyusunan.</p>
 </ul>
