@@ -268,12 +268,12 @@ body {
     border-color: #1e3550;
 }
 
-/* ─── READER: parent positioning untuk tombol panah ─── */
+/* ─── READER ─── */
 .reader {
     flex: 1;
     overflow-y: auto;
     background: #ffffff;
-    position: relative; /* WAJIB supaya tombol panah ngacu ke area putih ini, bukan ke .main */
+    position: relative;
 }
 
 .reader::-webkit-scrollbar { width: 8px; }
@@ -346,7 +346,7 @@ body {
     margin-top: 24px;
 }
 
-
+/* ─── NAV ARROW: sekarang nempel ke .main (gak discroll), bukan ke .reader ─── */
 .page-nav-float {
     position: absolute;
     top: 50%;
@@ -724,7 +724,7 @@ body {
         </div>
     </header>
 
-    <!-- ✅ Tombol panah sekarang DI DALAM .reader, biar ngacu ke area putih ini -->
+    <!-- ✅ .reader cuma isi konten artikel, polos tanpa tombol di dalemnya -->
     <div class="reader" id="reader">
         <div class="article" id="article-content">
             <h1 id="article-title">Memuat...</h1>
@@ -732,15 +732,16 @@ body {
                 <p>Sedang memuat konten...</p>
             </div>
         </div>
-
-        <a href="#" class="page-nav-float page-nav-float-prev" id="btn-prev" aria-label="Halaman sebelumnya">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </a>
-
-        <a href="#" class="page-nav-float page-nav-float-next" id="btn-next" aria-label="Halaman selanjutnya">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
     </div>
+
+    <!-- ✅ Tombol panah sekarang sibling dari .reader, nempel ke .main yang gak discroll -->
+    <a href="#" class="page-nav-float page-nav-float-prev" id="btn-prev" aria-label="Halaman sebelumnya">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </a>
+
+    <a href="#" class="page-nav-float page-nav-float-next" id="btn-next" aria-label="Halaman selanjutnya">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
 </div>
 
 <script>
