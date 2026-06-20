@@ -1,3 +1,17 @@
+<style>
+    img{
+         display: block;
+        width: 85%;
+        max-height: 100vh;
+        height: auto;
+        algin-items:center;
+        margin: 0 auto;
+        object-fit: contain;
+        margin: bottom 50px;
+        
+    }
+</style>
+
 <h2 class="subtitle">Penerapan Kalkulus dalam Optimisasi Sistem</h2>
 
 <div class="authors">
@@ -13,6 +27,8 @@
 
 <p>Selamat datang di "Kalkulus: Fungsi Turunan dan Integral"! Buku ini disusun sebagai panduan untuk memahami konsep dasar kalkulus, khususnya turunan dan integral, serta penerapannya dalam menyelesaikan masalah nyata di bidang teknologi dan sistem. Turunan dan integral bukan sekadar materi matematika abstrak, melainkan alat analisis yang sangat berguna dalam memahami performa sistem, optimisasi proses, dan pengambilan keputusan berbasis data.</p>
 
+<img src="img/cover.png" alt="" >
+<br>
 <p>Di era digital saat ini, sistem-sistem seperti server, aplikasi SaaS, dan layanan berbasis cloud membutuhkan analisis matematis yang tepat untuk menjaga performa tetap optimal. Buku ini bertujuan memberikan pemahaman yang jelas mengenai bagaimana turunan digunakan untuk menentukan titik optimal suatu sistem (seperti waktu respon minimum server), serta bagaimana integral digunakan untuk menghitung akumulasi beban, biaya, atau penggunaan resource secara kontinu.</p>
 
 <h2 id="sasaran-pembaca">Sasaran Pembaca</h2>
@@ -34,13 +50,13 @@
 <h2 id="tentang-penulis">Tentang Penulis</h2>
 
 <h3>M. Iqbal Patih</h3>
-<p>Anggota Kelompok 8 yang berkontribusi dalam penyusunan materi dan analisis studi kasus optimisasi waktu respon server menggunakan turunan.</p>
+<p>Anggota Kelompok 8 yang berperan dalam pembuatan tampilan web (frontend) eBook ini. Bertanggung jawab atas struktur antarmuka pengguna, navigasi antar bab, serta memastikan pengalaman membaca yang nyaman dan responsif bagi pembaca, mulai dari sidebar navigasi hingga tampilan konten setiap halaman.</p>
 
 <h3>Abimanyu</h3>
-<p>Anggota Kelompok 8 yang berkontribusi dalam penyusunan materi integral dan penerapannya pada studi kasus optimasi resource server.</p>
+<p>Anggota Kelompok 8 yang berperan dalam pengembangan sisi backend web eBook ini. Bertanggung jawab atas pengelolaan data konten, integrasi antara sistem penyimpanan materi dengan tampilan yang ditampilkan ke pengguna, serta memastikan setiap halaman dapat dimuat dengan baik dan terstruktur</p>
 
 <h3>Julianto Baharu</h3>
-<p>Anggota Kelompok 8 yang berkontribusi dalam penyusunan materi dan analisis evaluasi turunan serta implikasinya terhadap pengelolaan sistem.</p>
+<p>Anggota Kelompok 8 yang berperan dalam desain cover dan identitas visual eBook ini. Bertanggung jawab merancang tampilan sampul yang merepresentasikan tema Kalkulus, khususnya konsep fungsi turunan dan integral, agar mencerminkan isi materi secara visual sejak pertama kali dilihat oleh pembaca.</p>
 
 <h3>M. Rizky Alvarezi N.</h3>
 <p>Anggota Kelompok 8 yang berkontribusi dalam penyusunan materi sifat-sifat integral serta hubungan antara integral dan turunan.</p>
@@ -50,9 +66,9 @@
 <p>Penyusunan eBook ini tidak akan mungkin terjadi tanpa dukungan dari berbagai pihak. Kami ingin mengucapkan terima kasih kepada:</p>
 
 <ul>
-    <li><strong>Dosen Pengampu Mata Kuliah Kalkulus</strong> atas bimbingan dan arahan selama proses pembelajaran.</li>
-    <li><strong>Rekan Kelompok 8</strong> atas kerja sama dan kontribusi dalam menyusun materi ini.</li>
-    <li><strong>Institusi</strong> yang telah menyediakan sumber daya dan fasilitas yang diperlukan selama proses penyusunan.</li>
+    <p><strong>Dosen Pengampu Mata Kuliah Kalkulus</strong> atas bimbingan dan arahan selama proses pembelajaran.</p>
+    <p><strong>Rekan Kelompok 8</strong> atas kerja sama dan kontribusi dalam menyusun materi ini.</p>
+    <p><strong>Institusi</strong> yang telah menyediakan sumber daya dan fasilitas yang diperlukan selama proses penyusunan.</p>
 </ul>
 
 <p>Kami berharap eBook ini dapat menjadi referensi yang berguna, memberikan pemahaman baru bagi pembaca mengenai penerapan kalkulus dalam dunia nyata, khususnya di bidang teknologi dan sistem.</p>
