@@ -422,7 +422,7 @@ body {
         <a href="#" data-page="ucapan-terima-kasih" class="menu-sub">Ucapan Terima Kasih</a>
         <a href="#" data-page="umpan-balik-saran" class="menu-sub">Umpan Balik &amp; Saran</a>
 
-   <a href="#" data-page="Bab-1-Pengenalan-Kalkulus-dalam-Teknologi-Informasi" class="menu-chapter">
+   <a href="#" data-page="Bab-1-pendauluan" class="menu-chapter">
     <span class="num">BAB 1</span>-Pengenalan Fungsi  & Turunam
 </a>
 
@@ -439,103 +439,34 @@ body {
 </a>
   
 
-<a href="#" data-page="bab1-4" class="menu-sub-num">
-    <span class="num">1.4</span> Video Instalasi R &amp; RStudio
-</a>
-    <a href="#" data-page="bab1-4-1" class="menu-sub-sub">
-        <span class="num">1.4.1</span> Persiapan Instalasi
-    </a>
-    <a href="#" data-page="bab1-4-2" class="menu-sub-sub">
-        <span class="num">1.4.2</span> Proses Instalasi
-    </a>
-    <a href="#" data-page="bab1-4-3" class="menu-sub-sub">
-        <span class="num">1.4.3</span> Syarat Titik Stasioner (Maksimum/Minimum)
-    </a>
-
-<a href="#" data-page="bab1-5" class="menu-sub-num">
-    <span class="num">1.5</span> Proses Penyelesaian Matematis
-</a>
-    <a href="#" data-page="bab1-5-1" class="menu-sub-sub">
-        <span class="num">1.5.1</span> Menentukan Turunan Pertama Fungsi T(x)
-    </a>
-    <a href="#" data-page="bab1-5-2" class="menu-sub-sub">
-        <span class="num">1.5.2</span> Menerapkan Syarat Nilai Minimum
-    </a>
-    <a href="#" data-page="bab1-5-3" class="menu-sub-sub">
-        <span class="num">1.5.3</span> Perhitungan Nilai x Nyata
-    </a>
-
-<a href="#" data-page="bab1-6" class="menu-sub-num">
-    <span class="num">1.6</span> Analisis Hasil dan Kesimpulan Studi Kasus
-</a>
-    <a href="#" data-page="bab1-6-1" class="menu-sub-sub">
-        <span class="num">1.6.1</span> Menghitung Waktu Respon Minimum
-    </a>
-    <a href="#" data-page="bab1-6-2" class="menu-sub-sub">
-        <span class="num">1.6.2</span> Interpretasi Grafik Fungsi Keseluruhan
-    </a>
-    <a href="#" data-page="bab1-6-3" class="menu-sub-sub">
-        <span class="num">1.6.3</span> Rekomendasi Batas Optimal Kapasitas Server
-    </a>
-    <a href="#" data-page="bab1-6-4" class="menu-sub-sub">
-        <span class="num">1.6.4</span> Kesimpulan Akhir Bab 1
-    </a>
 
         <!-- BAB 2 -->
-        <a href="#" data-page="bab-2" class="menu-chapter">
-            <span class="num">2</span> Landasan Teori Fungsi Turunan
+        <a href="#" data-page="bab-2-konsep-dasar-turunan" class="menu-chapter">
+            <span class="num"></span> BAB-2 Konsep Dasar Turunan
         </a>
         <a href="#" data-page="bab2-1" class="menu-sub-num">
             <span class="num">2.1</span> Definisi dan Aspek
         </a>
-            <a href="#" data-page="bab2-1-1" class="menu-sub-sub">
-                <span class="num">2.1.1</span> Definisi dan Notasi Turunan
-            </a>
-            <a href="#" data-page="bab2-1-2" class="menu-sub-sub">
-                <span class="num">2.1.2</span> Definisi Formal Turunan
-            </a>
-            <a href="#" data-page="bab2-2-2" class="menu-sub-sub">
-                <span class="num">2.2.2</span> Notasi Aksendan Leibniz
-            </a>
-            <a href="#" data-page="bab2-1-2-b" class="menu-sub-sub">
-                <span class="num">2.1.2</span> Definisi Formal Turunan
-            </a>
+
         <a href="#" data-page="bab2-2" class="menu-sub-num">
             <span class="num">2.2</span> Aturan Dasar Turunan Fungsi Aljabar
         </a>
-            <a href="#" data-page="bab2-2-1" class="menu-sub-sub">
-                <span class="num">2.2.1</span> Aturan Konstanta
-            </a>
-            <a href="#" data-page="bab2-2-2-b" class="menu-sub-sub">
-                <span class="num">2.2.2</span> Aturan Fungsi Identitas
-            </a>
-             <a href="#" data-page="bab2-2-3" class="menu-sub-sub">
-                <span class="num">2.2.3</span> Data Kualitatif
-            </a>
 
 
         <a href="#" data-page="bab2-3" class="menu-sub-num">
             <span class="num">2.3</span> Populasi dan Sampel
         </a>
-            <a href="#" data-page="bab2-3-1" class="menu-sub-sub">
-                <span class="num">2.3.1</span> Definisi Populasi
-            </a>
-            <a href="#" data-page="bab2-3-2" class="menu-sub-sub">
-                <span class="num">2.3.2</span> Teknik Sampling
-            </a>
-            <a href="#" data-page="bab2-3-3" class="menu-sub-sub">
-                <span class="num">2.3.3</span> Teknik Sampling
-            </a>
-
+           
 
             
         <a href="#" data-page="bab2-4" class="menu-sub-num">
             <span class="num">2.4</span> Populasi dan Sampel
         </a>
-            <a href="#" data-page="bab2-4-1" class="menu-sub-sub">
-                <span class="num">2.4.1</span> Definisi Populasi
-            </a>
-            
+         
+        <a href="#" data-page="bab2-5" class="menu-sub-num">
+            <span class="num">2.5</span> Optimasi Performa Perusahaan SaaS
+        </a>
+         
 
         <!-- BAB 3 -->
         <a href="#" data-page="bab-3" class="menu-chapter">

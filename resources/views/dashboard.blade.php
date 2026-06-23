@@ -42,20 +42,7 @@
                         </a>
                         <a href="?page=bab1#latar" style="display:block; padding:6px 12px 6px 22px; font-size:13px; color:#4b5563; text-decoration:none; border-radius:6px;">1.1 Latar Belakang</a>
                         <a href="?page=bab1#bab1-2" style="display:block; padding:6px 12px 6px 22px; font-size:13px; color:#4b5563; text-decoration:none; border-radius:6px;">1.2 Tujuan Pembelajaran</a>
-                        <a href="?page=bab1#bab1-3" style="display:block; padding:6px 12px 6px 22px; font-size:13px; color:#4b5563; text-decoration:none; border-radius:6px;">1.3 Manfaat Pembelajaran</a>
-                        <a href="?page=bab1#bab1-4" style="display:block; padding:6px 12px 6px 22px; font-size:13px; color:#4b5563; text-decoration:none; border-radius:6px;">1.4 Video Instalasi R &amp; RStudio</a>
-                        <a href="?page=bab1-4-1" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.4.1 Persiapan Instalasi</a>
-                        <a href="?page=bab1-4-2" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.4.2 Proses Instalasi</a>
-                        <a href="?page=bab1-4-3" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.4.3 Syarat Titik Stasioner</a>
-                        <a href="?page=bab1-5" style="display:block; padding:6px 12px 6px 22px; font-size:13px; color:#4b5563; text-decoration:none; border-radius:6px;">1.5 Proses Penyelesaian Matematis</a>
-                        <a href="?page=bab1-5-1" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.5.1 Menentukan Turunan Pertama</a>
-                        <a href="?page=bab1-5-2" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.5.2 Menerapkan Syarat Nilai Minimum</a>
-                        <a href="?page=bab1-5-3" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.5.3 Perhitungan Nilai x Nyata</a>
-                        <a href="?page=bab1-6" style="display:block; padding:6px 12px 6px 22px; font-size:13px; color:#4b5563; text-decoration:none; border-radius:6px;">1.6 Analisis Hasil dan Kesimpulan</a>
-                        <a href="?page=bab1-6-1" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.6.1 Menghitung Waktu Respon Minimum</a>
-                        <a href="?page=bab1-6-2" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.6.2 Interpretasi Grafik Fungsi</a>
-                        <a href="?page=bab1-6-3" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.6.3 Rekomendasi Batas Optimal Server</a>
-                        <a href="?page=bab1-6-4" style="display:block; padding:6px 12px 6px 36px; font-size:12px; color:#6b7280; text-decoration:none; border-radius:6px;">1.6.4 Kesimpulan Akhir Bab 1</a>
+                        <a href="?page=bab1#bab1-3" style="display:block; padding:6px 12px 6px 22px; font-size:13px; 
 
                         {{-- BAB 2 --}}
                         <a href="?page=bab2" style="display:block; padding:8px 12px; border-radius:6px; font-size:13px; font-weight:700; color:#4f46e5; text-decoration:none; background:#eef2ff; margin-top:8px; margin-bottom:2px;">
@@ -116,7 +103,7 @@
                     @if($page == 'pengantar')
                       @include('materi.Kata-Pengantar-Fungsi-Turunan-Intrgral')
                     @elseif($page == 'bab1')
-                        @include('materi.Bab-1-Pengenalan-Kalkulus-dalam-Teknologi-Informasi')
+                        @include('materi.Bab-1-pendauluan')
                     @elseif($page == 'bab-2')
                         @include('materi.bab-2')
                     @elseif($page == 'bab2')
