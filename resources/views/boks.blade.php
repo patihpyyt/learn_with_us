@@ -422,30 +422,22 @@ body {
         <a href="#" data-page="ucapan-terima-kasih" class="menu-sub">Ucapan Terima Kasih</a>
         <a href="#" data-page="umpan-balik-saran" class="menu-sub">Umpan Balik &amp; Saran</a>
 
-   <a href="#" data-page="bab-1" class="menu-chapter">
-    <span class="num">1</span> Pengenalan R &amp; Rstudio
+   <a href="#" data-page="Bab-1-Pengenalan-Kalkulus-dalam-Teknologi-Informasi" class="menu-chapter">
+    <span class="num">BAB 1</span>-Pengenalan Fungsi  & Turunam
 </a>
 
-<a href="#" data-page="bab1-1" class="menu-sub-num">
-    <span class="num">1.1</span> Sejarah Singkat R
+<a href="#" data-page="latar" class="menu-sub-num">
+    <span class="num">1.1</span> Latar Belakang
 </a>
 
 <a href="#" data-page="bab1-2" class="menu-sub-num">
-    <span class="num">1.2</span> Tentang Rstudio
+    <span class="num">1.2</span> Tujuan Pembelajaran
 </a>
 
 <a href="#" data-page="bab1-3" class="menu-sub-num">
-    <span class="num">1.3</span> Instalasi R dan RStudio
+    <span class="num">1.3</span> Manfaat Pembelajaran
 </a>
-    <a href="#" data-page="bab1-3-1" class="menu-sub-sub">
-        <span class="num">1.3.1</span> Instalasi R
-    </a>
-    <a href="#" data-page="bab1-3-2" class="menu-sub-sub">
-        <span class="num">1.3.2</span> Instalasi RStudio
-    </a>
-    <a href="#" data-page="bab1-3-3" class="menu-sub-sub">
-        <span class="num">1.3.3</span> Konfigurasi Awal
-    </a>
+  
 
 <a href="#" data-page="bab1-4" class="menu-sub-num">
     <span class="num">1.4</span> Video Instalasi R &amp; RStudio
@@ -755,8 +747,26 @@ body {
         '#sidebar-menu a.menu-chapter[data-page]'
     ));
 
-    // Slug-slug yang sebenarnya cuma anchor di dalam Kata Pengantar
-    const anchorOnlySlugs = ['sasaran-pembaca', 'tentang-penulis', 'ucapan-terima-kasih', 'umpan-balik-saran'];
+    // Cari slug halaman induk (chapter) terdekat di ATAS sebuah link sidebar.
+// Berlaku untuk SEMUA anchor (1.1, 1.2, dst, di bab manapun), tidak perlu hardcode.
+function findParentChapterSlug(slug) {
+    const idx = links.findIndex(a => a.dataset.page === slug);
+    if (idx === -1) return KATA_PENGANTAR_SLUG;
+
+    for (let i = idx; i >= 0; i--) {
+        if (links[i].classList.contains('menu-chapter')) {
+            return links[i].dataset.page;
+        }
+    }
+    return KATA_PENGANTAR_SLUG;
+}
+
+// Sebuah link dianggap "anchor saja" (bukan chapter) kalau dia BUKAN menu-chapter.
+function isAnchorOnly(slug) {
+    const link = links.find(a => a.dataset.page === slug);
+    if (!link) return false;
+    return !link.classList.contains('menu-chapter');
+}
 
     function goToPage(slug) {
         fetch(`/api/content/${slug}`)
@@ -784,29 +794,29 @@ body {
                 }
             });
     }
-
-    function scrollToAnchor(slug) {
-        const heading = document.getElementById(slug);
-        if (heading) {
-            heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-            // Belum di halaman Kata Pengantar -> load dulu, baru scroll
-            fetch(`/api/content/${KATA_PENGANTAR_SLUG}`)
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById('article-title').innerText = data.title;
-                    document.getElementById('article-content-body').innerHTML = data.body;
-                    setTimeout(() => {
-                        const h = document.getElementById(slug);
-                        if (h) h.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 50);
-                });
-        }
-
-        links.forEach(a => a.classList.remove('active'));
-        const activeLink = links.find(a => a.dataset.page === slug);
-        if (activeLink) activeLink.classList.add('active');
+function scrollToAnchor(slug) {
+    const heading = document.getElementById(slug);
+    if (heading) {
+        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        // Cari halaman induk anchor ini secara otomatis (bisa Kata Pengantar, Bab 1, Bab 2, dst)
+        const parentSlug = findParentChapterSlug(slug);
+        fetch(`/api/content/${parentSlug}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('article-title').innerText = data.title;
+                document.getElementById('article-content-body').innerHTML = data.body;
+                setTimeout(() => {
+                    const h = document.getElementById(slug);
+                    if (h) h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            });
     }
+
+    links.forEach(a => a.classList.remove('active'));
+    const activeLink = links.find(a => a.dataset.page === slug);
+    if (activeLink) activeLink.classList.add('active');
+}
 
     function updateNav(slug) {
         let idx = chapterLinks.findIndex(a => a.dataset.page === slug);
@@ -830,18 +840,18 @@ body {
         if (idx < chapterLinks.length - 1) next.dataset.target = chapterLinks[idx + 1].dataset.page;
     }
 
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const slug = this.dataset.page;
+   links.forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const slug = this.dataset.page;
 
-            if (anchorOnlySlugs.includes(slug)) {
-                scrollToAnchor(slug);
-            } else {
-                goToPage(slug);
-            }
-        });
+        if (isAnchorOnly(slug)) {
+            scrollToAnchor(slug);
+        } else {
+            goToPage(slug);
+        }
     });
+});
 
     document.getElementById('btn-prev').addEventListener('click', function (e) {
         e.preventDefault();

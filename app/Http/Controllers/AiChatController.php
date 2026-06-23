@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 
 class AiChatController extends Controller 
 {
-    // 1. Fungsi Index tetap sama
     public function index(Request $request) 
     {
         $riwayat = auth()->check()
@@ -21,8 +20,9 @@ class AiChatController extends Controller
             : collect();
 
         $chatMasaLalu = collect();
-        
+
         if ($request->has('chat_id')) {
+            // Buka percakapan LAMA yang dipilih dari riwayat
             $targetChat = AiCalculation::find($request->chat_id);
             if ($targetChat) {
                 session(['active_chat_session' => $targetChat->chat_session_id]);
@@ -30,6 +30,10 @@ class AiChatController extends Controller
                                              ->orderBy('created_at', 'asc') 
                                              ->get();
             }
+        } else {
+            // ✅ FIX: Tidak ada chat_id = user klik "Percakapan Baru" atau pertama kali buka /ai
+            // Reset session lama, biar chat baru dapat session_id baru, bukan nyambung ke yang lama
+            session()->forget('active_chat_session');
         }
 
         return view('ai', compact('riwayat', 'chatMasaLalu'));
@@ -64,7 +68,6 @@ class AiChatController extends Controller
             $messages[] = ['role' => 'assistant', 'content' => $chat->ai_response];
         }
 
-        // Tambahkan pesan baru dari user di akhir
         $messages[] = ['role' => 'user', 'content' => $inputData];
 
         try {
@@ -87,7 +90,7 @@ class AiChatController extends Controller
                 'user_id'         => auth()->id() ?? null,
                 'chat_session_id' => $currentSessionId,
                 'input_data'      => $inputData,
-                'ai_prompt'       => $inputData, 
+                'ai_prompt'       => $inputData,
                 'ai_response'     => $hasilAI
             ]);
 
