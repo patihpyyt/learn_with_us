@@ -94,7 +94,7 @@ body {
 .menu-sub-num {
     font-weight: 600;
     font-size: 14px;
-    padding: 11px 24px;
+    padding: 11px 24px 11px 40px; 
     color: #ffffff;
 }
 
@@ -460,132 +460,65 @@ body {
 
             
         <a href="#" data-page="bab2-4" class="menu-sub-num">
-            <span class="num">2.4</span> Populasi dan Sampel
+            <span class="num">2.4</span> Optimasi Performa Perusahaan SaaS
+
         </a>
          
-        <a href="#" data-page="bab2-5" class="menu-sub-num">
-            <span class="num">2.5</span> Optimasi Performa Perusahaan SaaS
-        </a>
+       
          
 
         <!-- BAB 3 -->
-        <a href="#" data-page="bab-3" class="menu-chapter">
-            <span class="num">3</span> Statistik Deskriptif
+        <a href="#" data-page="bab-3-konsep-dasar-integeral" class="menu-chapter">
+            <span class="num">BAB 3</span> Konsep Dasar Turunan
         </a>
         <a href="#" data-page="bab3-1" class="menu-sub-num">
-            <span class="num">3.1</span> Ukuran Pemusatan
+            <span class="num">3.1</span> Pendahuluan
         </a>
-            <a href="#" data-page="bab3-1-1" class="menu-sub-sub">
-                <span class="num">3.1.1</span> Mean
-            </a>
-            <a href="#" data-page="bab3-1-2" class="menu-sub-sub">
-                <span class="num">3.1.2</span> Median
-            </a>
-            
 
 
         <a href="#" data-page="bab3-2" class="menu-sub-num">
-            <span class="num">3.2</span> Ukuran Penyebaran
+            <span class="num">3.2</span> Pengertian Integral
         </a>
-            <a href="#" data-page="bab3-2-1" class="menu-sub-sub">
-                <span class="num">3.2.1</span> Varians
-            </a>
-            <a href="#" data-page="bab3-2-2" class="menu-sub-sub">
-                <span class="num">3.2.2</span> Standar Deviasi
-            </a>
            
 
         <a href="#" data-page="bab3-3" class="menu-sub-num">
-            <span class="num">3.3</span> Visualisasi Data
+            <span class="num">3.3</span> Hubungan Integral dengan Turunan
         </a>
-            <a href="#" data-page="bab3-3-1" class="menu-sub-sub">
-                <span class="num">3.3.1</span> Histogram
-            </a>
-            <a href="#" data-page="bab3-3-2" class="menu-sub-sub">
-                <span class="num">3.3.2</span> Boxplot
-            </a>
         
-              <a href="#" data-page="bab3-4" class="menu-sub-num">
-            <span class="num">3.4</span> Visualisasi Data
+        <a href="#" data-page="bab3-4" class="menu-sub-num">
+            <span class="num">3.4</span> Integral Tak Tentu
         </a>
-            <a href="#" data-page="bab3-4-1" class="menu-sub-sub">
-                <span class="num">3.4.1</span> Histogram
-            </a>
-            <a href="#" data-page="bab3-4-2" class="menu-sub-sub">
-                <span class="num">3.4.2</span> Boxplot
-            </a>
-             <a href="#" data-page="bab3-4-3" class="menu-sub-sub">
-                <span class="num">3.4.3</span> Boxplot
-            </a>
+
+        <a href="#" data-page="bab3-5" class="menu-sub-num">
+            <span class="num">3.5</span> Aturan Dasar Integr
+
+        <a href="#" data-page="bab3-6" class="menu-sub-num">
+            <span class="num">3.6</span> Integral Tentu
+        </a>
+
+        <a href="#" data-page="bab3-7" class="menu-sub-num">
+            <span class="num">3.7</span> Penerapan Integral dalam Teknologi Informasi
+        </a>
+           
+        <a href="#" data-page="bab3-8" class="menu-sub-num">
+            <span class="num">3.8</span> Studi Kasus: Optimasi Resource Server MiniNetflix
+
+        </a>
+           
            
         <!-- BAB 4 -->
-        <a href="#" data-page="bab4" class="menu-chapter">
-            <span class="num">4</span> Distribusi Probabilitas
+        <a href="#" data-page="bab-4-pentup" class="menu-chapter">
+            <span class="num">4</span> Pentup
         </a>
+
         <a href="#" data-page="bab4-1" class="menu-sub-num">
-            <span class="num">4.1</span> Konsep Probabilitas
-        </a>
-          
-
-        <a href="#" data-page="bab4-2" class="menu-sub-num">
-            <span class="num">4.2</span> Konsep Probabilitas
-        </a>
-            <a href="#" data-page="bab4-2-1" class="menu-sub-sub">
-                <span class="num">4.2.1</span> Histogram
-            </a>
-            <a href="#" data-page="bab4-2-2" class="menu-sub-sub">
-                <span class="num">4.2.2</span> Boxplot
-            </a>
-             <a href="#" data-page="bab4-2-3" class="menu-sub-sub">
-                <span class="num">4.2.3</span> Boxplot
-            </a>
-
-
-        <a href="#" data-page="bab4-3" class="menu-sub-num">
-            <span class="num">4.3</span> Distribusi Lainnya
-        </a>
-         
-
-
-        <!-- BAB 5 -->
-        <a href="#" data-page="bab5" class="menu-chapter">
-            <span class="num">5</span> Uji Hipotesis
-        </a>
-        <a href="#" data-page="bab5-1" class="menu-sub-num">
-            <span class="num">5.1</span> Konsep Uji Hipotesis
+            <span class="num">4.1</span> Kesimpulan
         </a>
         
-
-
-        <a href="#" data-page="bab5-2" class="menu-sub-num">
-            <span class="num">5.2</span> Uji Satu Sampel
+         <a href="#" data-page="bab4-2" class="menu-sub-num">
+            <span class="num">4.1</span> Saran
         </a>
-            <a href="#" data-page="bab5-2-1" class="menu-sub-sub">
-                <span class="num">5.2.1</span> Uji t Satu Sampel
-            </a>
-            <a href="#" data-page="bab5-2-2" class="menu-sub-sub">
-                <span class="num">5.2.2</span> Interpretasi Hasil
-            </a>
-        <a href="#" data-page="bab5-3" class="menu-sub-num">
-            <span class="num">5.3</span> Uji Dua Sampel
-        </a>
-            <a href="#" data-page="bab5-3-1" class="menu-sub-sub">
-                <span class="num">5.3.1</span> Uji t Independen
-            </a>
-            <a href="#" data-page="bab5-3-2" class="menu-sub-sub">
-                <span class="num">5.3.2</span> Uji t Berpasangan
-            </a>
-
-            <a href="#" data-page="bab5-3-3" class="menu-sub-sub">
-                <span class="num">5.3.3</span> Uji t Berpasangan
-            </a>
-        <a href="#" data-page="bab5-4" class="menu-sub-num">
-            <span class="num">5.4</span> ANOVA
-        </a>
-            <a href="#" data-page="bab5-4-1" class="menu-sub-sub">
-                <span class="num">5.4.1</span> One-Way ANOVA
-            </a>
-         
+        
 
     </div>
 
